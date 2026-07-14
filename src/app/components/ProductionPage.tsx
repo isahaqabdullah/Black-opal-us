@@ -18,7 +18,7 @@ import {
 const balancedOverviewTitle =
   'From Coconut Shell Charcoal to High-Performance Activated Carbon - Fully Integrated Production';
 
-const productionCertifications = ['ISO 9001', 'ISO 14001', 'ISO 45001'];
+const productionCertifications = ['ISO accredited facilities'];
 
 const portraitPackagingImageUrls = new Set([
   '/images/packaging/export-palletized-bags.jpeg',

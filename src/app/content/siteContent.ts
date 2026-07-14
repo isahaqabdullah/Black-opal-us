@@ -429,14 +429,14 @@ export const homePageContent: HomePageContent = {
   heroVideoFallback: 'Your browser does not support the video tag.',
   trustCertificationLabel: 'Certifications',
   trustCertificationValue: 'NSF 42 · NSF 61 · Prop 65 Compliant',
-  trustCertificationLinkLabel: 'View official NSF listing',
-  trustCertificationLinkUrl: 'https://info.nsf.org/Certified/DWTU/Listings.asp?Company=C0546994&Standard=042',
+  trustCertificationLinkLabel: '',
+  trustCertificationLinkUrl: '',
   trustEstablishedLabel: 'Established',
   trustEstablishedValue: 'Since 2010',
   trustProductionLabel: 'Production',
   trustProductionValue: `${siteConfig.productionCenterCount} Production Centers`,
   trustCapacityLabel: 'Capacity',
-  trustCapacityValue: '35000 metric tons/year',
+  trustCapacityValue: '50 million lbs',
   productSectionKicker: 'Product Categories',
   productSectionTitle: 'Application-matched grades for every process',
   applicationSectionKicker: 'Applications',
@@ -453,7 +453,7 @@ export const homePageContent: HomePageContent = {
   companyMetrics: [
     { value: '2010', label: 'Year established' },
     { value: siteConfig.productionCenterCount, label: 'Production centers' },
-    { value: '35000 metric tons', label: 'Annual capacity' },
+    { value: '50 million lbs', label: 'Annual capacity' },
   ],
   companyAboutCtaPath: '/about',
   companyAboutCtaLabel: 'About Black Opal',
@@ -500,7 +500,7 @@ export const homePageContent: HomePageContent = {
     {
       icon: 'shield-check',
       title: 'Certifications & Compliance',
-      desc: 'NSF 42, NSF 61, and California Prop 65 compliant. Ready for regulated and food-grade applications.',
+      desc: 'NSF 42, NSF 61, and California Prop 65 compliant water-treatment grades are manufactured in ISO accredited facilities.',
     },
   ],
   featuredCapabilitiesLabel: 'Featured Capabilities',
@@ -584,7 +584,7 @@ export const productionPageContent: ProductionPageContent = {
   },
   intro: {
     label: 'Production',
-    title: '35,000 Metric Tons Annual Capacity. Built for Consistent Global Supply',
+    title: 'Manufacturing',
     description:
       'Consistent quality, multiple grades and dependable delivery for water treatment, air and gas purification, gold recovery and industrial applications',
     breadcrumbLabel: 'Production',
@@ -592,7 +592,7 @@ export const productionPageContent: ProductionPageContent = {
   glanceLabel: 'Production at a glance',
   glanceItems: [
     {
-      value: '35000 metric tons',
+      value: '50 million lbs',
       label: 'Annual capacity',
     },
     {
@@ -604,17 +604,17 @@ export const productionPageContent: ProductionPageContent = {
       label: 'Application-specific sizing',
     },
   ],
-  overviewTitle: 'From Coconut Shell Charcoal to High-Performance Activated Carbon - Fully Integrated Production',
+  overviewTitle: 'Our coconut activated carbon facility in India is the largest in the region',
   overviewBody:
-    "Black Opal's India coconut activated carbon facility is the largest in the region, with annual production capacity of 35000 metric tons. The integrated production flow controls raw material selection, steam activation, particle sizing, impregnation, packing, and final inspection so every shipment is prepared to specification.",
+    'Our coconut activated carbon facility in India is the largest in the region with annual production capacity of 50 million pounds of carbon. Black Opal Group factories pursue uncompromising quality standards in all stages of process and operation activities. For this, a meticulous quality control program is operated throughout the entire process from selection of raw material to final quality assurance prior to shipment.',
   image: '/images/production-facility.avif',
   imageAlt: 'Black Opal production facility',
   qualityKicker: 'Quality program',
-  qualityTitle: 'End-to-End Quality Control',
+  qualityTitle: 'Uncompromising Quality Standards',
   qualityParagraphs: [
-    'Controlled, tested, and verified from raw material preparation to final dispatch.',
-    'Charcoal is sourced from selected outlets only after rigorous quality inspection. State-of-the-art equipment and skilled technicians support control over activation, handling, screening, and packing.',
-    'Indocarb AC LLC brand coconut carbon products, now carried under Black Opal Carbons, have been extensively tested and acclaimed by major industry leaders and reputed laboratories around the world.',
+    'Our craving for uncompromising quality starts at the selection of raw material itself. Charcoal is sourced from selected outlets after rigorous quality inspections.',
+    "Our factories employ state-of-the-art equipment and technology and are supported by highly qualified and skilled technicians. No-compromise quality control is their top priority.",
+    'Specially designed crushing and screening machines assure a great degree of control over particle size to precisely meet the application-specific mesh size range requirements of our customers. Quality of IndoCarb brand coconut carbon products has been extensively tested and acclaimed by major industry leaders and reputed laboratories around the world.',
   ],
   activationKicker: 'Steam activation method',
   activationSteps: [
@@ -622,23 +622,23 @@ export const productionPageContent: ProductionPageContent = {
       step: '01',
       title: 'Carbonization',
       body:
-        'Coconut shell lumps are heated without oxygen, usually below 700 C, converting the shell into charcoal with volatile content reduced to less than 20%.',
+        'Coconut shells in the form of lumps are carbonized to convert coconut shells to char or charcoal by pyrolysis, which is chemical decomposition by heating in the absence of oxygen. Temperatures usually do not exceed 700 C, reducing volatile content to less than 20%.',
     },
     {
       step: '02',
       title: 'Steam activation',
       body:
-        'The carbonized material is activated in steam at around 1,100 C / 2,012 F, opening and enlarging the internal pore network that gives the carbon its adsorption character.',
+        'The carbonized base material is activated at high temperature, about 1,100 C / 2,012 F, in steam. The reaction between carbon and steam takes place at the internal surface, removing carbon from pore walls and enlarging the pores.',
     },
     {
       step: '03',
       title: 'Sizing and finishing',
       body:
-        'Rotary kiln output is crushed, screened, and cleaned for granular specifications. Powder grades are produced by further grinding the granules with a gentle pulverizing action.',
+        'Output from the rotary kiln is processed in the postproduction plant where it is crushed and screened to different sizes and to remove fines and dust for granular activated carbons. Powdered activated carbons are produced by further grinding the granules with a gentle pulverizing action.',
     },
   ],
   activationNote:
-    'Activation time, temperature, and post-production sizing allow the pore structure and particle size to be matched to water purification, gas treatment, color removal, granular media, and powdered carbon requirements.',
+    'The steam activation process allows pore size to be readily altered and carbons can be produced to suit specific end uses. Activation temperature and activation time are important to create internal pore networks and impart surface chemistries inside each particle.',
   packagingKicker: 'Packaging and dispatch',
   packagingTitle: 'Prepared for palletized export shipment',
   packagingBody:
@@ -899,10 +899,10 @@ export const aboutPageContent: AboutPageContent = {
   heroImageAlt: 'Black Opal manufacturing facility',
   storyTitle: 'Reliability, consistency, and service since 2010',
   storyParagraphs: [
-    'The group was established in 2010 as a joint venture between the largest privately owned coconut shell activated carbon manufacturer in South India and highly experienced activated carbon entrepreneurs with more than 50 years of combined field experience.',
-    'Over the years, Black Opal Carbons has become one of the most recognized brands in the activated carbon industry, with a reputation built on quality, innovation, service, and reliability.',
-    'Company-owned and operated manufacturing facilities give the group direct control over raw material selection, activation, processing, and final quality assurance. That operating model supports higher standards, dependable supply, and consistent product performance.',
-    'The state-of-the-art factories in South India has a combined annual production capacity of 35000 metric tons of coconut activated carbon for export markets. The team is committed to value-added products and services, open communication, and customer support focused on satisfaction 24 hours a day, 7 days a week.',
+    'The group was established in 2010 as a joint venture between the largest privately owned coconut shell activated carbon manufacturer in India and some of the highly experienced entrepreneurs in activated carbon industry with combined experience of over 50 years in the field.',
+    'Over the years, the group has become one of the most recognized brands in the industry, with a reputation based on quality, innovation, service and reliability.',
+    'Company owned and operated manufacturing facilities means higher quality standards, reliability and consistency.',
+    'The state-of-the-art factory in India has a production capacity of 50 million pounds of coconut activated carbon and has been serving the industry for years. We commit to provide our clients with value-added products and services; we further strive to exceed their expectations and keep them continuously informed through personable, honest and open communications. The secret of our success is our vision towards customer service and satisfaction, 24 hours per day and 7 days a week.',
   ],
   officeNetworkLabel: 'Office network',
   metrics: siteMetrics,
@@ -911,7 +911,7 @@ export const aboutPageContent: AboutPageContent = {
       icon: 'factory',
       title: 'Joint venture roots',
       desc:
-        'The group was established in 2010 as a joint venture between a leading South India coconut shell activated carbon manufacturer and experienced activated carbon entrepreneurs.',
+        'The group was established in 2010 as a joint venture between the largest privately owned coconut shell activated carbon manufacturer in India and highly experienced activated carbon entrepreneurs.',
     },
     {
       icon: 'building-2',
@@ -922,7 +922,7 @@ export const aboutPageContent: AboutPageContent = {
       icon: 'shield-check',
       title: 'Quality and reliability',
       desc:
-        'Company-owned and operated manufacturing facilities support tighter quality control, stronger reliability, and more consistent coconut activated carbon performance.',
+        'Company owned and operated manufacturing facilities means higher quality standards, reliability and consistency.',
     },
     {
       icon: 'refresh-ccw',
@@ -987,13 +987,13 @@ export const products: ProductEntry[] = [
     name: 'Granular Activated Carbon',
     shortName: 'Granular',
     summary:
-      'High-hardness coconut shell GAC for water treatment, gold recovery, solvent recovery, and condensate polishing.',
+      'Granular Activated Carbon for gold recovery, water treatment, solvent recovery, condensate polishing and H2S removal.',
     intro:
-      'Granular Activated Carbon (GAC) media and cartridges are used across water, mining, and gas-phase treatment where hardness, adsorption performance, and reliable attrition resistance are important.',
+      'Gold Recovery, Water Treatment, Solvent Recovery, Condensate & H2S removal are some of the major applications where a Granular Activated Carbon is used. Granular Activated Carbon (GAC) media and cartridges are an excellent choice for removing chlorine, bad tastes, odors, and several other contaminants from water.',
     highlights: [
-      'Manufactured from selected grades of coconut shell under stringent controls for hardness, surface area, and attrition resistance.',
-      'Available in different mesh sizes, adsorption levels, and pH-adjusted or washed variants tailored to customer requirements.',
-      'Water-treatment grades are manufactured in ISO accredited facilities and support NSF 42, NSF 61, and Prop 65 compliant applications.',
+      'IndoCarb GAC range of carbons has been manufactured from the highest quality selected grades of coconut shell under stringent controls.',
+      'The particle size and pore structure are specifically designed to provide the best adsorption properties.',
+      'GAC grades are available in different mesh sizes and adsorption levels, and pH adjusted or washed as tailor made per customer requirement.',
     ],
     commonUses: [
       'Water treatment',
@@ -1003,23 +1003,23 @@ export const products: ProductEntry[] = [
     ],
     sections: [
       {
-        title: 'Where it is used',
+        title: 'Applications',
         body:
-          'Gold recovery, water treatment, solvent recovery, condensate polishing, and hydrogen sulfide removal are core applications for Black Opal granular activated carbon.',
+          'Gold recovery, water treatment, solvent recovery, condensate polishing and H2S removal are some of the major applications where granular activated carbon is used.',
       },
       {
-        title: 'How it is built',
+        title: 'Coconut shell GAC range',
         body:
-          'The GAC range is produced from high-quality coconut shell feedstock and engineered so the particle size and pore structure support strong adsorption performance in fixed-bed and cartridge-based systems.',
+          'IndoCarb GAC range of carbons has been manufactured from the highest quality selected grades of coconut shell under stringent controls to have the ultimate hardness, surface area and attrition resistance. Besides, the particle size and pore structure have been specifically designed to provide the best adsorption properties.',
       },
       {
-        title: 'Why granular carbon is specified',
+        title: 'Certification and customization',
         body:
-          'Granular carbon is the backbone product when a process needs durable media, low attrition, and the flexibility to match mesh size and washing requirements to the application.',
+          'These are manufactured in ISO accredited facilities and are NSF 42 & NSF 61 certified for water treatment applications.',
         bullets: [
-          'High hardness and abrasion resistance',
-          'Process-specific mesh size and washing options',
-          'Suitable for regulated and Prop 65 compliant water-treatment programs',
+          'Different mesh sizes and adsorption levels',
+          'pH adjusted or washed grades tailored per customer requirement',
+          'Ultimate hardness, surface area and attrition resistance',
         ],
       },
     ],
@@ -1031,13 +1031,13 @@ export const products: ProductEntry[] = [
     name: 'Powder Activated Carbon',
     shortName: 'Powder',
     summary:
-      'Virgin powdered activated carbon for drinking water, food-grade, wastewater, and odor-control programs.',
+      'Virgin powdered activated carbon suitable for drinking water, food-grade applications, wastewater treatment and odor removal.',
     intro:
-      'PAC gives treatment teams a fast-response format for drinking water and batch programs where rapid contact and flexible dosing matter more than fixed-bed operation.',
+      'IndoCarb manufactures virgin powdered activated carbon to be ANSI/NSF Standard 42 & 61 classified suitable for drinking water and food-grade applications.',
     highlights: [
-      'Suitable for drinking-water and food-grade applications aligned with ANSI/NSF Standard 42 and 61 requirements and Prop 65 compliance.',
-      'Used in water treatment, wastewater treatment, odor removal, and brewery or winery applications.',
-      'Commonly applied for chloramines, pesticides, herbicides, groundwater remediation, and DBP reduction.',
+      'Different industries that benefit from virgin powder activated carbon include water treatment, wastewater treatment, odor removal, brewery and winery.',
+      'PAC is commonly used in filter cartridges to filter chloramines and organic compounds, including pesticides and herbicides, from drinking water.',
+      'Additional applications include pesticide removal, groundwater remediation, disinfection-by-product (DBP) removal and many more.',
     ],
     commonUses: [
       'Water treatment',
@@ -1047,23 +1047,23 @@ export const products: ProductEntry[] = [
     ],
     sections: [
       {
-        title: 'Where it fits',
+        title: 'Drinking water and food-grade applications',
         body:
-          'Powder carbon is used when the treatment program benefits from inline dosing or batch addition rather than a cartridge or pressure vessel.',
+          'IndoCarb manufactures virgin powdered activated carbon to be ANSI/NSF Standard 42 & 61 classified suitable for drinking water and food-grade applications.',
       },
       {
-        title: 'Contaminant profile',
+        title: 'Industries served',
         body:
-          'Common PAC use cases include chloramines, pesticides, herbicides, and disinfection by-product reduction in drinking-water and remediation environments.',
+          'Some of the different industries that benefit from using virgin powder activated carbon include water treatment, wastewater treatment, odor removal, brewery and winery.',
       },
       {
-        title: 'Why it matters',
+        title: 'Additional applications',
         body:
-          'PAC extends the product offering into fast-response treatment programs and food-related processes where color, odor, or organic control has to happen quickly.',
+          'PAC is commonly used in filter cartridges to filter chloramines and organic compounds, including pesticides and herbicides, from drinking water.',
         bullets: [
-          'Drinking-water and food-grade positioning',
-          'Useful for emergency and variable-load treatment',
-          'Applicable across municipal and industrial water streams',
+          'Pesticide removal',
+          'Groundwater remediation',
+          'Disinfection-by-product (DBP) removal',
         ],
       },
     ],
@@ -1075,13 +1075,13 @@ export const products: ProductEntry[] = [
     name: 'Impregnated Activated Carbon',
     shortName: 'Impregnated',
     summary:
-      'Chemically enhanced coconut shell carbon for targeted gas-stream, bacteriostatic, and specialty purification duties.',
+      'Impregnated activated carbon for cost-effective removal of certain impurities from gas streams and water systems.',
     intro:
-      'Impregnation extends standard activated carbon performance so certain contaminants can be removed more effectively and more economically.',
+      'Impregnation optimizes the existing properties of activated carbon, giving a synergism between the chemicals and the carbon.',
     highlights: [
-      'Silver-impregnated carbon supports bacteriostatic protection in drinking-water filters and water systems.',
-      'Sulfur-impregnated carbon supports mercury removal in natural gas, air, hydrogen, and other gas streams.',
-      'Targeted impregnation supports removal of acid gases, ammonia, amines, and other specialty contaminants.',
+      'Impregnation facilitates cost-effective removal of certain impurities from gas streams, which would be impossible otherwise.',
+      'POU water filters use silver to counter bacterial growth on the surface of activated carbon.',
+      'GAC impregnated with sulfur provides superior mercury removal characteristics when treating natural gas, air, hydrogen or other gas streams.',
     ],
     commonUses: [
       'Gas purification',
@@ -1091,19 +1091,19 @@ export const products: ProductEntry[] = [
     ],
     sections: [
       {
-        title: 'Why impregnation changes performance',
+        title: 'Optimized activated carbon',
         body:
-          'Impregnation creates a synergistic interaction between the chemical additive and the carbon substrate so the media can remove compounds that would be difficult for untreated carbon alone.',
+          'Impregnation optimizes the existing properties of the activated carbon, giving a synergism between the chemicals and the carbon. This facilitates cost-effective removal of certain impurities from gas streams, which would be impossible otherwise.',
       },
       {
         title: 'Water and gas examples',
         body:
-          'Silver-impregnated carbon supports point-of-use water filters, while sulfur-impregnated carbon supports mercury capture in gas service. The broader positioning spans gas purification and protective equipment.',
+          'POU water filters use silver to counter bacterial growth on the surface of activated carbon. GAC impregnated with sulfur provides superior mercury removal characteristics when treating natural gas, air, hydrogen or other gas streams.',
       },
       {
         title: 'Common targets',
         body:
-          'This category is the specialty branch of the portfolio, used when an application has a contaminant-specific requirement rather than a broad adsorption problem.',
+          'Because of its antimicrobial and bacteriostatic properties, silver-impregnated carbon is an effective adsorbent for purification in drinking water filters and other water systems. Carbon can also be specifically impregnated for removal of acid gases, ammonia and amines.',
         bullets: [
           'Mercury',
           'Acid gases',
@@ -1120,13 +1120,13 @@ export const products: ProductEntry[] = [
     name: 'Catalytic Activated Carbon',
     shortName: 'Catalytic',
     summary:
-      'Surface-modified coconut shell carbon for chloramine, hydrogen sulfide, and difficult water-treatment contaminants.',
+      'Catalytic activated carbon for reduction of chloramines, hydrogen sulfides, hydrogen peroxides, THMs, TCE, PCE and taste and odor.',
     intro:
-      `Catalytic carbon supports chloramine reduction in ${siteConfig.utilityMarketLabel} drinking-water systems moving away from free chlorine.`,
+      'IndoCarb offers a wide range of high activity coconut shell based granular grades and acid washed grades that have enhanced catalytic carrier properties.',
     highlights: [
-      'Used for chloramines, hydrogen sulfides, hydrogen peroxides, THMs, TCE, PCE, detergents, pesticides, phenols, and taste and odor compounds.',
-      'Surface modification enhances the media’s natural ability to chemically change difficult contaminants.',
-      'CATCARB is engineered for water-treatment applications requiring rapid chloramine and H2S decomposition.',
+      'Designed for reduction of Chloramines, Hydrogen Sulfides, Hydrogen Peroxides, THMs, TCE, PCE, detergents, pesticides, Phenols, taste and odor.',
+      'Catalytic carbon is created by altering the surface structure of activated carbon to enhance carbon’s natural ability to chemically change contaminants.',
+      'CATCARB is surface modified to enhance the carbon capability for decomposing chloramine and hydrogen sulphide at a rapid pace.',
     ],
     commonUses: [
       'Chloramine reduction',
@@ -1137,23 +1137,23 @@ export const products: ProductEntry[] = [
     grades: ['CATCARB catalytic grades'],
     sections: [
       {
-        title: 'Why utilities use it',
+        title: 'Enhanced catalytic properties',
         body:
-          `Many ${siteConfig.utilityMarketLabel} water utilities have transitioned to chloramine as a more stable disinfectant in response to regulatory pressure around disinfection by-products.`,
+          'IndoCarb offers a wide range of high activity coconut shell based granular grades and acid washed grades that have enhanced catalytic carrier properties.',
       },
       {
-        title: 'Why standard carbon is not enough',
+        title: 'Chloramine removal',
         body:
-          'Standard activated carbon filters sized for chlorine removal have limited capacity for chloramine reduction at normal flow rates, which is where catalytic grades become important.',
+          'Chloramines are disinfectants used to treat drinking water, formed when ammonia is added to chlorine. Chloramines cannot be removed by passing water through the same activated carbon filters used for chlorine removal because these filters are too small at their designed flow rates.',
       },
       {
         title: 'How CATCARB works',
         body:
-          'CATCARB is surface modified, with particle size and pore structure tuned for adsorption while maintaining the hardness, surface area, and attrition resistance associated with high-quality coconut shell carbon.',
+          'CATCARB range of catalytic activated carbons has been developed especially for water treatment applications. CATCARB is surface modified to enhance the carbon capability significantly for decomposing components like chloramine and hydrogen sulphide in a rapid pace.',
         bullets: [
-          'Built for chloramine-heavy drinking-water programs',
-          'Also suited for hydrogen sulfide decomposition',
-          'Strong flagship product for Black Opal’s technical sales story',
+          'Highest quality selected grades of coconut shell',
+          'Stringent controls for hardness, surface area and attrition resistance',
+          'Particle size and pore structure designed for strong adsorption properties',
         ],
       },
     ],
@@ -1167,35 +1167,35 @@ export const applications: ApplicationEntry[] = [
     slug: 'water-treatment',
     name: 'Water Treatment',
     summary:
-      'Granular, powder, impregnated, and catalytic grades for drinking water, municipal systems, and wastewater purification.',
+      'Activated carbon for drinking water, industrial and process water treatment, municipal water and wastewater applications.',
     intro:
-      'Black Opal manufactures activated carbon for drinking water, industrial process water, municipal systems, groundwater remediation, and wastewater polishing.',
+      'Activated carbon is an efficient and cost-effective solution for removing a wide range of contaminants from industrial and municipal wastewater, contaminated ground and groundwater. IndoCarb offers solutions for water treatment including drinking water, industrial and process water treatment.',
     keyPoints: [
-      'Activated carbon is an efficient and cost-effective option for industrial and municipal wastewater plus contaminated ground and groundwater.',
-      'Coconut shell carbon supports chlorine reduction and adsorption of VOCs, pesticides, solvents, THMs, and other organics.',
-      'The water-treatment range includes GAC, PAC, impregnated, acid/water-washed, and specialty catalytic grades.',
+      'The water treatment product range includes GAC, PAC, impregnated, acid/water washed and speciality catalytic grade carbon.',
+      'Activated carbon is mainly used for chlorine and organics removal in drinking water treatment applications.',
+      'Coconut shell carbon is well suited for organic chemical adsorption, including volatile organic chemicals, while having higher chlorine reduction capabilities.',
     ],
     recommendedProducts: ['granular', 'powder', 'impregnated', 'catalytic'],
     sections: [
       {
         title: 'POU water filters',
         body:
-          'Water filters, cartridges, and carbon blocks are among the most widely used water-filtration technologies. Black Opal emphasizes balanced adsorption and pore structure, low ash, high strength, and consistent particle-size distribution.',
+          'Water filters, filter cartridges and carbon blocks are one of the most widely and effectively used water filtration technologies. IndoCarb utilizes state of the art manufacturing techniques and ultramodern equipment and testing facilities to produce carbon products with the ideal balance of adsorption and pore structure, low ash and impurities, high mechanical strength and consistent particle size distribution.',
         bullets: [
-          'NSF 42 positioning',
-          'Prop 65 compliant positioning',
-          'Silver-impregnated and catalytic options for bacteriostatic and chloramine duties',
+          'IndoCarb WT grade products comply with NSF 42 and Prop 65 certification standards.',
+          'Specialized products include silver impregnated carbon for bacteriostatic applications.',
+          'Catalytic carbons are available for chloramine, iron and hydrogen sulfide removal.',
         ],
       },
       {
         title: 'Municipal and industrial water',
         body:
-          'Municipal and industrial systems use activated carbon for taste, odor, and color removal, plus adsorption of VOCs, pesticides, disinfectant by-products, chlorinated hydrocarbons, and inhibitory compounds.',
+          'IndoCarb WT carbon is used in point-of-entry applications to remove taste, odor and color in drinking water. In municipal water, removal of organics including VOCs, inorganics and toxins from rivers, lakes, reservoirs, surface water and ground water systems is essential.',
       },
       {
         title: 'Wastewater treatment',
         body:
-          'Granular carbon supports fixed-bed removal of dissolved non-biodegradable organics, while powder carbon supports sludge-contact treatment programs to improve stability and settling.',
+          'Whether it is treatment of wastewater, effluent or contaminated ground water, IndoCarb activated carbon is the right choice for purification processes. Granular carbon filtration removes dissolved, non-biodegradable organics using fixed filter beds. Powder carbons are used by mixing with sludge for better process stability and improved settling characteristics.',
         bullets: [
           'Process effluent',
           'Swimming pools and aquariums',
@@ -1212,13 +1212,13 @@ export const applications: ApplicationEntry[] = [
     slug: 'gold-recovery',
     name: 'Gold Recovery',
     summary:
-      'Microporous coconut shell carbon grades for CIP, CIL, CIC and tank-adsorbed precious-metal recovery systems.',
+      'Highly microporous coconut shell activated carbon with excellent attrition resistance for gold recovery applications.',
     intro:
-      'Gold recovery is a specialist performance application where hardness, low platelets, low dust, and adsorption kinetics directly affect metal loading and carbon loss.',
+      'IndoCarb offers highly microporous coconut shell based activated carbons with excellent attrition resistance for gold recovery application, manufactured with very low platelet content and zero dust.',
     keyPoints: [
-      'GC grades are highly microporous, high-hardness, and built with excellent attrition resistance.',
-      'The product range emphasizes very low platelet content, zero dust, and vee-wire screening to keep fines to a minimum.',
-      'Black Opal manufactures activated carbon used by some of the world’s largest mining companies.',
+      'GC range carbons are manufactured from the highest quality coconut shell under stringent controls for ultimate hardness.',
+      'Particle size and pore structure are specifically designed for adsorption of metal and cyanide complexes from Carbon-in-pulp, Carbon-in-column or tank adsorbed systems.',
+      'IndoCarb specializes in precious metal recovery carbon and services some of the world’s largest mining companies.',
     ],
     recommendedProducts: ['granular'],
     grades: ['GC E612 Gold Grade', 'GC E816 Gold Grade'],
@@ -1226,17 +1226,17 @@ export const applications: ApplicationEntry[] = [
       {
         title: 'Recovery systems',
         body:
-          'GC grades are built for Carbon-in-Pulp, Carbon-in-Leach, Carbon-in-Column, and tank-adsorbed systems where adsorption of metal and cyanide complexes has to happen quickly and cleanly.',
+          'GC range products are designed for adsorption of metal and cyanide complexes from Carbon-in-pulp, Carbon-in-column, or tank adsorbed systems.',
       },
       {
-        title: 'Why the carbon is tuned this way',
+        title: 'Clean processing',
         body:
-          'The particle size and pore structure are engineered for precious-metal adsorption while maintaining the hardness needed to resist attrition in mining circuits.',
+          'IndoCarb GC range products are processed through a vee-wire screen to keep platelets to the minimum and de-dusted to keep the carbon extra clean.',
       },
       {
         title: 'Operating advantages',
         body:
-          'Mining circuits use these grades for durability, adsorption performance, and clean operation in recovery systems.',
+          'These carbons have superior adsorption kinetics with very high gold adsorption rates and loading capacities.',
         bullets: [
           'Superior hardness to minimize attrition loss and dust',
           'Higher gold adsorption capacities for maximum loading',
@@ -1251,25 +1251,25 @@ export const applications: ApplicationEntry[] = [
     slug: 'air-gas',
     name: 'Air & Gas',
     summary:
-      'Coconut shell and impregnated grades for indoor air quality, protection equipment, flue gas, and odor control.',
+      'Activated carbon for indoor air quality, gas masks, filters, emissions and nuisance odor control.',
     intro:
-      'Air and gas purification depends on hardness and retentivity, making coconut shell carbon a strong base media for demanding filtration duties.',
+      'Activated carbon plays an integral role in purifying indoor air quality and also outdoors with gas masks, filters and related applications. Air filtration applications require activated carbon grades featuring excellent hardness characteristics and high retentivity.',
     keyPoints: [
-      'Air filtration requires excellent hardness and high retentivity.',
-      'Coconut shell carbon fits air and gas service because of its microporous structure and toughness.',
-      'Both standard and impregnated grades are suited for industrial and protective environments.',
+      'Coconut shell-based activated carbons with extreme hardness and large microporous structure are the carbon of choice for air and gas service.',
+      'IndoCarb offers activated carbon products for emission regulations, environmental protection, controlling emissions and reducing harmful or nuisance odors.',
+      'Impregnated carbons are used in gas masks to protect civilian and military environments against chemical warfare gases.',
     ],
     recommendedProducts: ['impregnated', 'granular'],
     sections: [
       {
         title: 'Protective equipment',
         body:
-          'Respirators and gas masks containing IndoCarb VP granular activated carbon filters provide protection against acid gases, organic vapors, ammonia, mercury vapor, formaldehyde, and radioactive iodides.',
+          'Respirators and gas masks containing IndoCarb VP granular activated carbon filters are used to provide protection against acid gases, organic vapors, ammonia, mercury vapor, formaldehyde and radioactive iodides.',
       },
       {
         title: 'Industrial and environmental filtration',
         body:
-          'Air and gas applications include filters and adsorbers for indoor air quality, cabin air filtration, emission control, odor control, mines, chemical facilities, nuclear power stations, and manufacturing plants.',
+          'Our carbons are used in air filtration devices such as filters and adsorbers for Indoor Air Quality, Cabin Air Filtration and Emission/Odor Control applications. Other applications include mines, chemical facilities, nuclear power stations and manufacturing plants.',
       },
       {
         title: 'Named application areas',
@@ -1291,13 +1291,13 @@ export const applications: ApplicationEntry[] = [
     slug: 'oil-gas',
     name: 'Oil & Gas',
     summary:
-      'Activated carbon for vapor recovery, H2S removal, condensate polishing, and low-silica boiler-feed protection.',
+      'Activated carbon for petroleum vapor recovery, H2S removal, condensate polishing and refinery boiler-feed water treatment.',
     intro:
-      'Oil and gas applications include refinery vapor recovery, hydrogen sulfide removal, and high-purity condensate boiler-feed water treatment.',
+      'IndoCarb offers industry-leading activated carbon products for a wide range of oil and gas industry applications. Activated carbon is used for recovery of valuable products like gasoline vapors, benzene and solvents at petroleum refineries and for removal of hydrogen sulphide gas during oil refining.',
     keyPoints: [
-      'Activated carbon adsorbs gasoline vapors, benzene, solvents, and hydrogen sulfide during refining.',
-      'Condensate polishing helps protect ion-exchange resins and sensitive equipment.',
-      'A major performance claim is extremely low silica leaching and nil ash for refinery water service.',
+      'Water used as condensate boiler feed in refineries requires very high purification standards.',
+      'O&G grade treated activated carbons remove contaminants, de-oil condensate and purify water flow to protect ion exchange resins and sensitive equipment.',
+      'O&G grade carbon products are designed for the lowest silica leach and nil ash level in the industry.',
     ],
     recommendedProducts: ['granular', 'impregnated'],
     grades: ['Petro Grade'],
@@ -1305,17 +1305,17 @@ export const applications: ApplicationEntry[] = [
       {
         title: 'Refinery recovery and gas cleanup',
         body:
-          'Activated carbon supports recovery of economically valuable vapors and removal of hydrogen sulfide during oil refining.',
+          'Activated carbon is used for recovery of economically valuable products like gasoline vapors, benzene and solvents at petroleum refineries. Activated carbon is also an effective adsorbent for removal of hydrogen sulphide gas during oil refining.',
       },
       {
         title: 'Condensate and boiler-feed water',
         body:
-          'Black Opal emphasizes treated activated carbons that remove contaminants, de-oil condensate, and protect downstream ion-exchange resins, boiler tubes, and turbine blades from fouling and deterioration.',
+          'Water used as condensate boiler feed in refineries requires high purification standards. IndoCarb O&G grade treated activated carbons remove contaminants, de-oil condensate and purify water flow, protecting ion exchange resins and other sensitive equipment from damage and deterioration.',
       },
       {
         title: 'Operating advantages',
         body:
-          'Refinery and process applications often prioritize these performance qualities.',
+          'Silica is a common fouling agent in regular activated carbon products and can damage ion exchange resins, boiler tubes and turbine blades. IndoCarb O&G grade carbon products for boiler feed water treatment are designed to have the lowest silica leach and nil ash level in the industry.',
         bullets: [
           'Lowest level of silica leaching',
           'Low ash content and nil dust',
@@ -1329,33 +1329,33 @@ export const applications: ApplicationEntry[] = [
   },
   {
     slug: 'catalytic-carbon',
-    name: 'Catalytic / Chloramine Removal',
+    name: 'Catalytic Carbon',
     summary:
-      'Specialty catalytic carbon for chloramine decomposition and hydrogen sulfide control in drinking-water systems.',
+      'CATCARB catalytic activated carbon for chloramine and hydrogen sulphide decomposition in water treatment.',
     intro:
-      'Utilities are switching to chloramine, and catalytic activated carbon is the correct point-of-use or treatment response when standard chlorine carbon is not enough.',
+      'Many water utilities across the U.S. are transitioning to chloramine for disinfection as an alternative to chlorine in response to stricter U.S. Environmental Protection Agency regulations on disinfection byproducts.',
     keyPoints: [
-      'Chloramine adoption is tied to regulatory pressure on disinfection by-products formed by free chlorine and organics.',
-      'Chloramine is more stable than chlorine but harder to remove with standard carbon products.',
-      'CATCARB grades are specially developed for water-treatment applications needing faster decomposition performance.',
+      'Chloramine, a combination of chlorine and ammonia, is more stable and does not create DBPs.',
+      'Removing chloramine at the point of use is more difficult than removing chlorine, and standard granular activated carbon or carbon block products have limited chloramine reduction capacity.',
+      'CATCARB range catalytic activated carbons are developed especially for water treatment applications.',
     ],
     recommendedProducts: ['catalytic'],
     grades: ['CATCARB'],
     sections: [
       {
-        title: 'Why the market is changing',
+        title: 'Why utilities are changing',
         body:
-          `Many ${siteConfig.utilityMarketLabel} water utilities are transitioning to chloramine disinfection, which changes the treatment requirements downstream for residential, commercial, and municipal filtration systems.`,
+          'Many water utilities across the U.S. are transitioning to chloramine for disinfection as an alternative to chlorine. This change is in response to stricter U.S. Environmental Protection Agency regulations on disinfection byproducts, which are created when chlorine reacts with organics in water.',
       },
       {
         title: 'Why catalytic carbon matters',
         body:
-          'Standard granular activated carbon and carbon blocks have limited chloramine capacity at typical flow rates, which is why catalytic media is recommended instead.',
+          'Chloramine is more stable than chlorine and removing chloramine at the point of use is more difficult than removing chlorine. Standard granular activated carbon or carbon block products have limited capacity for chloramine reduction.',
       },
       {
         title: 'How CATCARB works',
         body:
-          'The CATCARB range is surface modified to rapidly decompose chloramine and hydrogen sulfide while retaining the hardness, surface area, and attrition resistance expected from high-quality coconut shell carbon.',
+          'CATCARB is surface modified to enhance the carbon capability significantly for decomposing components like chloramine and hydrogen sulphide in a rapid pace. Besides, the particle size and pore structure have been specifically designed to provide the best adsorption properties.',
       },
     ],
     image:
@@ -1365,9 +1365,9 @@ export const applications: ApplicationEntry[] = [
     slug: 'other-applications',
     name: 'Other Applications',
     summary:
-      'Specialty grades for solvent recovery, food and beverage purification, edible oil, and related industrial processes.',
+      'Activated carbon for solvent recovery, food and beverages, edible oil and other specialty applications.',
     intro:
-      'Black Opal manufactures specialty grades for solvent recovery plus food and beverage purification work beyond the main water, mining, gas, and refinery categories.',
+      'Other applications include solvent recovery, food and beverages, edible oil and many more specialty purification uses.',
     keyPoints: [
       'Solvent recovery supports printing, dry cleaning, and paint applications.',
       'Food and beverage applications focus on taste and odor control, CO2 purification, and edible-oil decolorization.',
@@ -1378,17 +1378,17 @@ export const applications: ApplicationEntry[] = [
       {
         title: 'Solvent recovery',
         body:
-          'Activated carbon adsorbs vaporized solvents from the exhaust air and then releases them during regeneration with hot steam or inert gas so the recovered solvent can be reused.',
+          'In many industries like printing, dry cleaning and paint, many types of solvents are vaporized in the course of production. Recovery of these solvents from exhaust air is a good practice to reduce cost and atmospheric pollution. Activated carbon adsorbs the solvent from air and subsequently desorbs by hot steam or inert gas so the condensate can be treated to recover solvent for reuse.',
       },
       {
         title: 'Food and beverages',
         body:
-          'Activated carbon removes undesired odor and taste from beverages and edible oils, purifies brewery CO2, and removes residual disinfectants including chlorine, chloramines, and THMs.',
+          'IndoCarb food grade activated carbon offers a solution for removal of undesired odor and taste of beverages including beer and edible oil. Activated carbons are offered for removal of residual disinfectants such as chlorines, chloramines and chlorinated by-products including THMs, as well as extraction and purification of CO2 generated during brewing.',
       },
       {
         title: 'Grades and outputs',
         body:
-          'Specialty applications require application-matched activity levels, desorption characteristics, filtration performance, and purity instead of a one-size-fits-all carbon grade.',
+          'The efficiency of solvent recovery depends on pore structure. IndoCarb offers granular and extruded activated carbons with activity levels for specific solvents, good desorption characteristics, excellent hardness and a wide range of particle sizes. Food grade powder carbon is available in different specifications with iodine adsorption level, methylene blue value and molasses number tailor made for edible oil purification.',
         bullets: [
           'Solvent Recovery Grade',
           'Edible Oil Grade',

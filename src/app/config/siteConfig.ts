@@ -236,13 +236,22 @@ const defaultAdditionalOffices: Office[] = [
     email: 'info@blackopalcarbonsme.com',
     note: 'Regional office for Middle East customer coordination.',
   },
+  {
+    label: 'United States warehouse locations',
+    name: 'Black Opal Carbons',
+    address: [
+      'Florida: 6333 Pelican Creek Circle, Riverview, FL 33578',
+      'New Jersey: 1578 Sussex Turnpike, Randolph, NJ 07869',
+      'Ohio: Scippo Creek Rd, Circleville, OH 43113',
+    ],
+  },
   groupHeadquartersOffice,
 ];
 const additionalOffices = (parseOffices(runtimeEnv.ADDITIONAL_OFFICES_JSON) ?? defaultAdditionalOffices).map(
   normalizeOfficeCopy,
 );
 const defaultLogisticsSummary =
-  'Company-owned manufacturing, 35000 metric tons annual capacity, US-based support, and final quality assurance before shipment support consistent coconut activated carbon supply.';
+  'Company-owned manufacturing, 50 million lbs annual coconut activated carbon capacity, US-based support, and final quality assurance before shipment support consistent supply.';
 const headquartersLabel = normalizeHeadquartersCopy(envValue('HEADQUARTERS_LABEL', GROUP_HEADQUARTERS_LABEL));
 const headquartersDescriptor = normalizeHeadquartersCopy(
   envValue('HEADQUARTERS_DESCRIPTOR', GROUP_HEADQUARTERS_LABEL),
@@ -251,7 +260,7 @@ const marketBaseTitle = envValue('MARKET_BASE_TITLE', 'Manufacturing base and of
 const marketBaseDescription = normalizeHeadquartersCopy(
   envValue(
     'MARKET_BASE_DESCRIPTION',
-    "Black Opal's state-of-the-art factory in India anchors 35000 metric tons of annual coconut activated carbon capacity. Black Opal Group Headquarters in Pittsburgh, the India office, and the Middle East office keep customers connected to the team for enquiries, technical support, and service.",
+    "Black Opal's state-of-the-art factory in India has a production capacity of 50 million pounds of coconut activated carbon. Black Opal Group Headquarters in Pittsburgh, the India office, the Middle East office, and US warehouse locations keep customers connected to the team for enquiries, technical support, and service.",
   ),
 );
 const configuredContact: Office = {
@@ -290,7 +299,7 @@ export const siteConfig = {
   ),
   heroDescription: envValue(
     'HERO_DESCRIPTION',
-    `${originStatement}, Black Opal manufactures coconut shell activated carbon for global water treatment, air and gas purification, gold recovery, oil and gas, and specialty purification systems.`,
+    'Black Opal manufactures coconut shell activated carbon for global water treatment, air and gas purification, gold recovery, oil and gas, and specialty purification systems.',
   ),
   originStatement,
   originDescription,
@@ -316,7 +325,7 @@ export const siteConfig = {
   serviceArea,
   marketName,
   utilityMarketLabel,
-  productionCenterCount: envValue('PRODUCTION_CENTER_COUNT', '3'),
+  productionCenterCount: envValue('PRODUCTION_CENTER_COUNT', '2'),
   logisticsSummary: optionalEnvValue(
     'LOGISTICS_SUMMARY',
     defaultLogisticsSummary,
