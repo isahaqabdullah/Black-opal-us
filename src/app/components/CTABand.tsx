@@ -42,13 +42,6 @@ export function CTABand() {
             >
               {homePage.ctaPrimaryLabel}
             </Link>
-            <Link
-              href={homePage.ctaSecondaryPath}
-              className="premium-secondary-btn text-[14px] px-8 py-3 rounded-full"
-              style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
-            >
-              {homePage.ctaSecondaryLabel}
-            </Link>
           </div>
         </div>
       </div>

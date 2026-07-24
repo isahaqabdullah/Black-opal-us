@@ -462,7 +462,7 @@ export const homePageContent: HomePageContent = {
   ctaTitle: 'Grade selection starts with the process',
   ctaDescription: 'Mesh size, activity, washing, compliance, and delivery requirements shape the final recommendation.',
   ctaPrimaryPath: '/contact',
-  ctaPrimaryLabel: 'Request Quote',
+  ctaPrimaryLabel: 'Request Quote/TDS',
   ctaSecondaryPath: '/activated-carbon-suppliers/bulk-activated-carbon-supplier',
   ctaSecondaryLabel: 'Bulk manufacturing capability',
   whyKicker: `Why ${siteConfig.siteName}`,
@@ -709,7 +709,7 @@ export const siteSettingsContent: SiteSettingsContent = {
       { label: 'Contact', to: '/contact' },
     ],
     ctaPath: '/contact',
-    ctaLabel: 'Request Quote',
+    ctaLabel: 'Request Quote/TDS',
     mobileMenuLabel: 'Toggle navigation menu',
   },
   footer: {
