@@ -420,7 +420,7 @@ export const homePageContent: HomePageContent = {
   heroTitle: siteConfig.heroTitle,
   heroDescription: siteConfig.heroDescription,
   heroPrimaryCtaPath: '/contact',
-  heroPrimaryCtaLabel: 'Request a Quote',
+  heroPrimaryCtaLabel: 'Request Quote/TDS',
   heroSecondaryCtaPath: '/contact',
   heroSecondaryCtaLabel: 'Talk to Technical Sales',
   heroLegacyLabel: 'Formerly Indocarb AC LLC',
@@ -768,7 +768,7 @@ export const pageCopyContent: PageCopyContent = {
     referencedGradesLabel: 'Referenced grades',
     detailCtaLabel: 'Product details',
     quoteCtaPath: '/contact',
-    quoteCtaLabel: 'Request quote',
+    quoteCtaLabel: 'Request Quote/TDS',
   },
   productDetailPage: {
     introLabel: 'Product Detail',
@@ -782,7 +782,7 @@ export const pageCopyContent: PageCopyContent = {
     allProductsCtaPath: '/products',
     allProductsCtaLabel: 'All products',
     quoteCtaPath: '/contact',
-    quoteCtaLabel: 'Request quote',
+    quoteCtaLabel: 'Request Quote/TDS',
   },
   applicationsPage: {
     seo: {
