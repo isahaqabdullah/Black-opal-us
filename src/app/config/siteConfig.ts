@@ -144,6 +144,12 @@ function dedupeOffices(offices: Office[]) {
   });
 }
 
+function isWarehouseOffice(office: Office) {
+  const text = `${office.label} ${office.name} ${office.address.join(' ')}`.toLowerCase();
+
+  return text.includes('warehouse');
+}
+
 function optionalEnvValue(name: string, fallback = '') {
   const value = runtimeEnv[name] as string | undefined;
   return value?.trim() || fallback;
@@ -236,20 +242,26 @@ const defaultAdditionalOffices: Office[] = [
     email: 'info@blackopalcarbonsme.com',
     note: 'Regional office for Middle East customer coordination.',
   },
-  {
-    label: 'United States warehouse locations',
-    name: 'Black Opal Carbons',
-    address: [
-      'Florida: 6333 Pelican Creek Circle, Riverview, FL 33578',
-      'New Jersey: 1578 Sussex Turnpike, Randolph, NJ 07869',
-      'Ohio: Scippo Creek Rd, Circleville, OH 43113',
-    ],
-  },
   groupHeadquartersOffice,
 ];
-const additionalOffices = (parseOffices(runtimeEnv.ADDITIONAL_OFFICES_JSON) ?? defaultAdditionalOffices).map(
-  normalizeOfficeCopy,
-);
+const warehouseOffice: Office = {
+  label: 'United States warehouse locations',
+  name: 'Black Opal Carbons',
+  address: [
+    'Florida: Jacksonville, FL 32254',
+    'Florida: Riverview, FL 33578',
+    'Texas: Garland, TX 75042',
+    'California: Whittier, CA 90602',
+    'Missouri: St. Louis, MO 63134',
+    'New Jersey: Randolph, NJ 07869',
+    'Ohio: Circleville, OH 43113',
+  ],
+};
+const configuredAdditionalOffices = parseOffices(runtimeEnv.ADDITIONAL_OFFICES_JSON) ?? defaultAdditionalOffices;
+const additionalOffices = [
+  ...configuredAdditionalOffices.filter((office) => !isWarehouseOffice(office)),
+  warehouseOffice,
+].map(normalizeOfficeCopy);
 const defaultLogisticsSummary =
   'Company-owned manufacturing, 50 million lbs annual coconut activated carbon capacity, US-based support, and final quality assurance before shipment support consistent supply.';
 const headquartersLabel = normalizeHeadquartersCopy(envValue('HEADQUARTERS_LABEL', GROUP_HEADQUARTERS_LABEL));
@@ -325,7 +337,7 @@ export const siteConfig = {
   serviceArea,
   marketName,
   utilityMarketLabel,
-  productionCenterCount: envValue('PRODUCTION_CENTER_COUNT', '2'),
+  productionCenterCount: envValue('PRODUCTION_CENTER_COUNT', '3'),
   logisticsSummary: optionalEnvValue(
     'LOGISTICS_SUMMARY',
     defaultLogisticsSummary,

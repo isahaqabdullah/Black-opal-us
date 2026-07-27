@@ -45,7 +45,7 @@ Hero supporting proof:
 NSF 42 / NSF 61
 Prop 65 Compliant
 35000 metric tons capacity
-2 production centers
+3 production centers
 Black Opal Group Headquarters + office network
 2. Trust bar
 Display:
@@ -147,7 +147,7 @@ NSF 42 / NSF 61 references
 Prop 65 compliant messaging
 Product family breakdown
 Application sectors
-Established 2010 / 2 production centers / 35000 metric tons
+Established 2010 / 3 production centers / 35000 metric tons
 Pittsburgh HQ and contact details
 What to improve or add
 The current site would benefit from pages or modules for:
@@ -167,8 +167,7 @@ Company sells coconut shell activated carbon
 Main products: granular, powder, impregnated, catalytic
 Main applications: water treatment, gold recovery, air & gas, oil & gas, catalytic/chloramine removal
 Trust points: NSF 42, NSF 61, Prop 65 compliant
-Scale points: established 2010, 2 production centers, 35000 metric tons
+Scale points: established 2010, 3 production centers, 35000 metric tons
 Black Opal Group Headquarters in Pittsburgh, with regional office support
 Primary CTA should be quote/inquiry driven
 I can turn this next into a full page-by-page wireframe outline or actual rewritten website copy for the new design.
-

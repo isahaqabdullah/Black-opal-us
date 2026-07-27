@@ -280,6 +280,7 @@ export type PageCopyContent = {
     intro: PageIntroContent;
     highlightsLabel: string;
     commonUsesLabel: string;
+    applicationsLabel: string;
     referencedGradesLabel: string;
     detailCtaLabel: string;
     quoteCtaPath: string;
@@ -291,6 +292,7 @@ export type PageCopyContent = {
     productsBreadcrumbLabel: string;
     overviewLabel: string;
     commonUsesLabel: string;
+    applicationsLabel: string;
     ctaTitle: string;
     ctaDescription: string;
     allProductsCtaPath: string;
@@ -765,6 +767,7 @@ export const pageCopyContent: PageCopyContent = {
     },
     highlightsLabel: 'Highlights',
     commonUsesLabel: 'Common uses',
+    applicationsLabel: 'Applications',
     referencedGradesLabel: 'Referenced grades',
     detailCtaLabel: 'Product details',
     quoteCtaPath: '/contact',
@@ -776,6 +779,7 @@ export const pageCopyContent: PageCopyContent = {
     productsBreadcrumbLabel: 'Products',
     overviewLabel: 'Overview',
     commonUsesLabel: 'Common uses',
+    applicationsLabel: 'Applications',
     ctaTitle: 'Recommendations shaped by process conditions',
     ctaDescription:
       'Application, volume, and performance targets shape the grade match and technical recommendation.',
@@ -1371,7 +1375,7 @@ export const applications: ApplicationEntry[] = [
     keyPoints: [
       'Solvent recovery supports printing, dry cleaning, and paint applications.',
       'Food and beverage applications focus on taste and odor control, CO2 purification, and edible-oil decolorization.',
-      'Granular, extruded, and food-grade powder carbons support different process requirements.',
+      'Granular, extruded, food-grade powder, and specialty impregnated carbons support different process requirements.',
     ],
     recommendedProducts: ['granular', 'powder', 'impregnated'],
     sections: [
@@ -1388,11 +1392,12 @@ export const applications: ApplicationEntry[] = [
       {
         title: 'Grades and outputs',
         body:
-          'The efficiency of solvent recovery depends on pore structure. IndoCarb offers granular and extruded activated carbons with activity levels for specific solvents, good desorption characteristics, excellent hardness and a wide range of particle sizes. Food grade powder carbon is available in different specifications with iodine adsorption level, methylene blue value and molasses number tailor made for edible oil purification.',
+          'The efficiency of solvent recovery depends on pore structure. IndoCarb offers granular and extruded activated carbons with activity levels for specific solvents, good desorption characteristics, excellent hardness and a wide range of particle sizes. Food grade powder carbon is available in different specifications with iodine adsorption level, methylene blue value and molasses number tailor made for edible oil purification. Specialty impregnated carbons are available when a process requires contaminant-specific chemistry beyond standard adsorption.',
         bullets: [
           'Solvent Recovery Grade',
           'Edible Oil Grade',
           'Food-grade powdered carbon',
+          'Specialty impregnated carbon',
         ],
       },
     ],

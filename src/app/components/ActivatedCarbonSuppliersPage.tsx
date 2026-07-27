@@ -476,7 +476,7 @@ export function ActivatedCarbonSuppliersPage() {
                         {office.email ? (
                           <a
                             href={`mailto:${office.email}`}
-                            className="block w-fit break-all text-[13px] text-[#f7efdb] transition-colors hover:text-[#f2d78b]"
+                            className="block w-fit whitespace-nowrap text-[13px] text-[#f7efdb] transition-colors hover:text-[#f2d78b]"
                             style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
                           >
                             {office.email}

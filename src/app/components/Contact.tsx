@@ -1,9 +1,9 @@
 'use client';
 
-import { Mail, Phone, X } from 'lucide-react';
+import { X } from 'lucide-react';
 import { useState } from 'react';
 import { useSiteContent } from '../content/SiteContentProvider';
-import { formatPhoneNumbers } from '../utils/phone';
+import { OfficeContactLinks } from './OfficeContactLinks';
 import { PageIntro } from './PageIntro';
 
 const attachmentLimits = {
@@ -126,8 +126,6 @@ export function ContactPage() {
                 </span>
                 <div className="grid gap-3">
                   {siteSettings.officeNetwork.map((office) => {
-                    const phones = formatPhoneNumbers(office.phone);
-
                     return (
                       <address
                         key={`${office.label}-${office.name}`}
@@ -154,29 +152,7 @@ export function ContactPage() {
                             {line}
                           </p>
                         ))}
-                        <div className="mt-4 space-y-2">
-                          {phones.map((phone) => (
-                            <a
-                              key={phone.href}
-                              href={phone.href}
-                              className="flex items-center gap-2 text-[#b8ab8b] transition-colors hover:text-[#f2d78b]"
-                              style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700 }}
-                            >
-                              <Phone size={14} className="shrink-0 text-[#b8ab8b]" />
-                              <span className="text-[13px] leading-[1.5]">{phone.display}</span>
-                            </a>
-                          ))}
-                          {office.email ? (
-                            <a
-                              href={`mailto:${office.email}`}
-                              className="flex items-center gap-2 text-[#b8ab8b] transition-colors hover:text-[#f2d78b]"
-                              style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700 }}
-                            >
-                              <Mail size={14} className="shrink-0 text-[#b8ab8b]" />
-                              <span className="text-[13px] leading-[1.5] break-all">{office.email}</span>
-                            </a>
-                          ) : null}
-                        </div>
+                        <OfficeContactLinks office={office} />
                       </address>
                     );
                   })}

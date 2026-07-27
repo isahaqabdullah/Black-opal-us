@@ -9,6 +9,7 @@ import {
 import type { FeatureIconName } from '../content/siteContent';
 import { useSiteContent } from '../content/SiteContentProvider';
 import { getSiteNavigation } from './navigation/siteNavigation';
+import { OfficeContactLinks } from './OfficeContactLinks';
 import { PageIntro } from './PageIntro';
 
 const icons: Record<FeatureIconName, typeof Factory> = {
@@ -100,7 +101,7 @@ export function AboutPage() {
                 >
                   {aboutPage.officeNetworkLabel}
                 </span>
-                <div className="grid gap-3 lg:grid-cols-3">
+                <div className="grid gap-3 md:grid-cols-2">
                   {siteSettings.officeNetwork.map((office) => (
                     <address
                       key={`${office.label}-${office.name}`}
@@ -127,6 +128,7 @@ export function AboutPage() {
                           {line}
                         </p>
                       ))}
+                      <OfficeContactLinks office={office} />
                     </address>
                   ))}
                 </div>
