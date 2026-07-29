@@ -198,12 +198,18 @@ function DesktopNavigationDropdown({
   active: boolean;
 }) {
   const [open, setOpen] = useState(false);
+  const [openedByClick, setOpenedByClick] = useState(false);
   const dropdownId = useId();
   const rootRef = useRef<HTMLDivElement>(null);
 
+  const closeDropdown = () => {
+    setOpen(false);
+    setOpenedByClick(false);
+  };
+
   const closeIfFocusLeaves = (event: FocusEvent<HTMLDivElement>) => {
     if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
-      setOpen(false);
+      closeDropdown();
     }
   };
 
@@ -212,11 +218,11 @@ function DesktopNavigationDropdown({
       ref={rootRef}
       className="group relative isolate flex items-center"
       onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
+      onMouseLeave={closeDropdown}
       onBlur={closeIfFocusLeaves}
       onKeyDown={(event) => {
         if (event.key === 'Escape') {
-          setOpen(false);
+          closeDropdown();
           rootRef.current?.querySelector<HTMLButtonElement>('button')?.focus();
         }
       }}
@@ -236,7 +242,15 @@ function DesktopNavigationDropdown({
         aria-label={`Toggle ${label} menu`}
         aria-expanded={open}
         aria-controls={dropdownId}
-        onClick={() => setOpen((current) => !current)}
+        onClick={() => {
+          if (openedByClick) {
+            closeDropdown();
+            return;
+          }
+
+          setOpenedByClick(true);
+          setOpen(true);
+        }}
         className={`ml-0.5 inline-flex size-5 items-center justify-center rounded-full transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-[#f2d78b] ${
           active || open ? 'text-[#f2d78b]' : 'text-[#8f835f] hover:text-[#f7efdb]'
         }`}
@@ -493,7 +507,7 @@ export function Navigation() {
           href: `/products/${product.slug}`,
           category: 'Product',
           summary: product.summary,
-          keywords: `${product.shortName} ${product.intro} ${product.highlights.join(' ')} ${product.commonUses.join(' ')} ${(product.grades ?? []).join(' ')}`,
+          keywords: `${product.shortName} ${(product.productNames ?? []).join(' ')} ${product.intro} ${product.highlights.join(' ')} ${product.commonUses.join(' ')} ${(product.grades ?? []).join(' ')}`,
         })),
         ...applications.map((application) => ({
           title: application.name,

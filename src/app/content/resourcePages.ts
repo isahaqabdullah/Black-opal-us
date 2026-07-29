@@ -1,3 +1,5 @@
+import { productBrandingBySlug } from './productBranding';
+
 export type ResourceHubCard = {
   title: string;
   description: string;
@@ -50,7 +52,7 @@ export const resourceHubCards: ResourceHubCard[] = [
     ctaLabel: 'View application',
   },
   {
-    title: 'Catalytic activated carbon',
+    title: productBrandingBySlug.catalytic.name,
     description:
       'CATCARB surface-modified coconut shell carbon for chloramine reduction, hydrogen sulfide control, taste and odor treatment, and specialty water-treatment requirements.',
     href: '/products/catalytic',

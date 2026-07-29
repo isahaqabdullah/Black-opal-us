@@ -124,6 +124,11 @@ const productDocuments: SanityDocument[] = products.map((product, index) => ({
   intro: product.intro,
   highlights: product.highlights,
   commonUses: product.commonUses,
+  productNames: product.productNames,
+  catalogues: product.catalogues?.map((catalogue) => ({
+    _type: 'productCatalogueEntry',
+    ...catalogue,
+  })),
   grades: product.grades,
   sections: sectionsForSanity(product.sections),
   imageUrl: product.image,

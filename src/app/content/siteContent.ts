@@ -1,4 +1,5 @@
 import { companyDetails, siteConfig } from '../config/siteConfig';
+import { productBrandingBySlug } from './productBranding';
 export { companyDetails } from '../config/siteConfig';
 
 export type SiteMetric = {
@@ -19,6 +20,17 @@ export type SeoFields = {
   seoDescription?: string;
   seoImage?: string;
   noIndex?: boolean;
+};
+
+export type ProductCatalogueEntry = {
+  _key?: string;
+  productName: string;
+  title: string;
+  description: string;
+  documentUrl: string;
+  coverImage: string;
+  pageCount: number;
+  fileSize: string;
 };
 
 export type HomePageContent = {
@@ -121,6 +133,8 @@ export type ProductEntry = {
   intro: string;
   highlights: string[];
   commonUses: string[];
+  productNames?: string[];
+  catalogues?: ProductCatalogueEntry[];
   grades?: string[];
   sections: ContentSection[];
   image: string;
@@ -281,6 +295,7 @@ export type PageCopyContent = {
     highlightsLabel: string;
     commonUsesLabel: string;
     applicationsLabel: string;
+    productListLabel: string;
     referencedGradesLabel: string;
     detailCtaLabel: string;
     quoteCtaPath: string;
@@ -293,6 +308,12 @@ export type PageCopyContent = {
     overviewLabel: string;
     commonUsesLabel: string;
     applicationsLabel: string;
+    productListLabel: string;
+    cataloguesLabel: string;
+    cataloguesTitle: string;
+    cataloguesDescription: string;
+    viewCatalogueLabel: string;
+    downloadCatalogueLabel: string;
     ctaTitle: string;
     ctaDescription: string;
     allProductsCtaPath: string;
@@ -609,8 +630,8 @@ export const productionPageContent: ProductionPageContent = {
   overviewTitle: 'Our coconut activated carbon facility in India is the largest in the region',
   overviewBody:
     'Our coconut activated carbon facility in India is the largest in the region with annual production capacity of 50 million pounds of carbon. Black Opal Group factories pursue uncompromising quality standards in all stages of process and operation activities. For this, a meticulous quality control program is operated throughout the entire process from selection of raw material to final quality assurance prior to shipment.',
-  image: '/images/production-facility.avif',
-  imageAlt: 'Black Opal production facility',
+  image: '/images/production/ucs-about.jpg',
+  imageAlt: 'Interior of the Black Opal activated carbon manufacturing facility',
   qualityKicker: 'Quality program',
   qualityTitle: 'Uncompromising Quality Standards',
   qualityParagraphs: [
@@ -768,6 +789,7 @@ export const pageCopyContent: PageCopyContent = {
     highlightsLabel: 'Highlights',
     commonUsesLabel: 'Common uses',
     applicationsLabel: 'Applications',
+    productListLabel: 'Products',
     referencedGradesLabel: 'Referenced grades',
     detailCtaLabel: 'Product details',
     quoteCtaPath: '/contact',
@@ -780,6 +802,13 @@ export const pageCopyContent: PageCopyContent = {
     overviewLabel: 'Overview',
     commonUsesLabel: 'Common uses',
     applicationsLabel: 'Applications',
+    productListLabel: 'Products',
+    cataloguesLabel: 'Technical literature',
+    cataloguesTitle: 'Product catalogues',
+    cataloguesDescription:
+      'Review product-specific applications, performance characteristics, standard specifications, packaging, and handling guidance.',
+    viewCatalogueLabel: 'View catalogue',
+    downloadCatalogueLabel: 'Download PDF',
     ctaTitle: 'Recommendations shaped by process conditions',
     ctaDescription:
       'Application, volume, and performance targets shape the grade match and technical recommendation.',
@@ -898,9 +927,8 @@ export const aboutPageContent: AboutPageContent = {
     breadcrumbLabel: 'About',
   },
   titleLogoImage: '/images/black-opal-hero-logo-transparent.png',
-  heroImage:
-    'https://images.unsplash.com/photo-1554070211-e3953a3de374?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-  heroImageAlt: 'Black Opal manufacturing facility',
+  heroImage: '/images/about/about-title.jpg',
+  heroImageAlt: 'Aerial view of the Black Opal manufacturing facility',
   storyTitle: 'Reliability, consistency, and service since 2010',
   storyParagraphs: [
     'The group was established in 2010 as a joint venture between the largest privately owned coconut shell activated carbon manufacturer in India and some of the highly experienced entrepreneurs in activated carbon industry with combined experience of over 50 years in the field.',
@@ -1076,8 +1104,8 @@ export const products: ProductEntry[] = [
   },
   {
     slug: 'impregnated',
-    name: 'Impregnated Activated Carbon',
-    shortName: 'Impregnated',
+    name: productBrandingBySlug.impregnated.name,
+    shortName: productBrandingBySlug.impregnated.shortName,
     summary:
       'Impregnated activated carbon for cost-effective removal of certain impurities from gas streams and water systems.',
     intro:
@@ -1092,6 +1120,31 @@ export const products: ProductEntry[] = [
       'Civil and military gas protection',
       'Mercury removal',
       'Bacteriostatic drinking-water systems',
+    ],
+    productNames: [...productBrandingBySlug.impregnated.productNames],
+    catalogues: [
+      {
+        _key: 'ammonyx-product-bulletin',
+        productName: 'AMMONYX',
+        title: 'AMMONYX Product Bulletin',
+        description:
+          'Acid-impregnated pellet carbon engineered for ammonia, amine, odor-control, and industrial gas-purification duties.',
+        documentUrl: '/documents/product-catalogues/ammonyx-product-bulletin.pdf',
+        coverImage: '/images/product-catalogues/ammonyx-product-bulletin.jpg',
+        pageCount: 2,
+        fileSize: '1.3 MB',
+      },
+      {
+        _key: 'respirax-product-bulletin',
+        productName: 'RESPIRAX',
+        title: 'RESPIRAX Product Bulletin',
+        description:
+          'Multi-gas impregnated carbon for respirator cartridges, escape hoods, collective protection, and industrial air-purification equipment.',
+        documentUrl: '/documents/product-catalogues/respirax-product-bulletin.pdf',
+        coverImage: '/images/product-catalogues/respirax-product-bulletin.jpg',
+        pageCount: 2,
+        fileSize: '1.1 MB',
+      },
     ],
     sections: [
       {
@@ -1121,8 +1174,8 @@ export const products: ProductEntry[] = [
   },
   {
     slug: 'catalytic',
-    name: 'Catalytic Activated Carbon',
-    shortName: 'Catalytic',
+    name: productBrandingBySlug.catalytic.name,
+    shortName: productBrandingBySlug.catalytic.shortName,
     summary:
       'Catalytic activated carbon for reduction of chloramines, hydrogen sulfides, hydrogen peroxides, THMs, TCE, PCE and taste and odor.',
     intro:
@@ -1137,6 +1190,42 @@ export const products: ProductEntry[] = [
       'Hydrogen sulfide removal',
       'Taste and odor reduction',
       'Specialty water treatment',
+    ],
+    productNames: [...productBrandingBySlug.catalytic.productNames],
+    catalogues: [
+      {
+        _key: 'catcarb-product-leaflet',
+        productName: 'CatCarb',
+        title: 'CatCarb Product Leaflet',
+        description:
+          'Catalytic activated carbon for rapid chloramine and hydrogen sulfide reduction in drinking-water treatment.',
+        documentUrl: '/documents/product-catalogues/catcarb-product-leaflet.pdf',
+        coverImage: '/images/product-catalogues/catcarb-product-leaflet.jpg',
+        pageCount: 2,
+        fileSize: '1.0 MB',
+      },
+      {
+        _key: 'catalyx-vp-product-bulletin',
+        productName: 'CatalyX VP',
+        title: 'CatalyX VP Product Bulletin',
+        description:
+          'Catalytic pellet carbon for hydrogen sulfide and sulfur-contaminant control in air, gas, biogas, and industrial odor-treatment systems.',
+        documentUrl: '/documents/product-catalogues/catalyx-vp-product-bulletin.pdf',
+        coverImage: '/images/product-catalogues/catalyx-vp-product-bulletin.jpg',
+        pageCount: 2,
+        fileSize: '1.0 MB',
+      },
+      {
+        _key: 'catalyx-wt-product-bulletin',
+        productName: 'CatalyX WT',
+        title: 'CatalyX WT Product Bulletin',
+        description:
+          'Catalytic activated carbon engineered for chloramine reduction across residential, commercial, and municipal water-treatment systems.',
+        documentUrl: '/documents/product-catalogues/catalyx-wt-product-bulletin.pdf',
+        coverImage: '/images/product-catalogues/catalyx-wt-product-bulletin.jpg',
+        pageCount: 2,
+        fileSize: '1.0 MB',
+      },
     ],
     grades: ['CATCARB catalytic grades'],
     sections: [

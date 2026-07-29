@@ -1,4 +1,7 @@
+import { existsSync } from 'node:fs';
+import path from 'node:path';
 import { applications, products } from '../src/app/content/siteContent';
+import { productBrandingBySlug } from '../src/app/content/productBranding';
 import { applicationsForProduct } from '../src/app/content/productApplicationRelationships';
 import { supplierLandingPages } from '../src/app/content/supplierLandingPages';
 
@@ -8,13 +11,49 @@ const applicationSlugs = new Set(applications.map((application) => application.s
 const applicationMap = new Map(
   applications.map((application) => [application.slug, application]),
 );
+const catalogueUrls = new Set<string>();
 
-function sameMembers(left: string[], right: string[]) {
+function publicAssetExists(assetUrl: string) {
+  return assetUrl.startsWith('/') && existsSync(path.join(process.cwd(), 'public', assetUrl.slice(1)));
+}
+
+function sameMembers(left: readonly string[], right: readonly string[]) {
   return (
     left.length === right.length &&
     left.every((value) => right.includes(value)) &&
     right.every((value) => left.includes(value))
   );
+}
+
+for (const [slug, branding] of Object.entries(productBrandingBySlug)) {
+  const product = products.find((entry) => entry.slug === slug);
+
+  if (!product) {
+    errors.push(`Missing canonically branded product "${slug}".`);
+    continue;
+  }
+
+  if (product.name !== branding.name) {
+    errors.push(`${slug} must use the canonical name "${branding.name}".`);
+  }
+
+  if (product.shortName !== branding.shortName) {
+    errors.push(`${slug} must use the canonical short name "${branding.shortName}".`);
+  }
+
+  if (!sameMembers(product.productNames ?? [], branding.productNames)) {
+    errors.push(`${slug} must list the canonical products: ${branding.productNames.join(', ')}.`);
+  }
+
+  for (const productName of branding.productNames) {
+    const hasCatalogue = product.catalogues?.some((catalogue) =>
+      catalogue.productName.toLowerCase().startsWith(productName.toLowerCase()),
+    );
+
+    if (!hasCatalogue) {
+      errors.push(`${slug} must include a catalogue for "${productName}".`);
+    }
+  }
 }
 
 for (const application of applications) {
@@ -34,6 +73,21 @@ for (const application of applications) {
 for (const product of products) {
   if (applicationsForProduct(product.slug, applications).length === 0) {
     errors.push(`${product.slug} is not referenced by any application.`);
+  }
+
+  for (const catalogue of product.catalogues ?? []) {
+    if (catalogueUrls.has(catalogue.documentUrl)) {
+      errors.push(`Duplicate catalogue URL "${catalogue.documentUrl}".`);
+    }
+    catalogueUrls.add(catalogue.documentUrl);
+
+    if (!publicAssetExists(catalogue.documentUrl)) {
+      errors.push(`${product.slug} catalogue PDF is missing: ${catalogue.documentUrl}.`);
+    }
+
+    if (!publicAssetExists(catalogue.coverImage)) {
+      errors.push(`${product.slug} catalogue cover is missing: ${catalogue.coverImage}.`);
+    }
   }
 }
 

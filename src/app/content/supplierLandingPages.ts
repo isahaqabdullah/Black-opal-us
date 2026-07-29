@@ -1,3 +1,5 @@
+import { productBrandingBySlug } from './productBranding';
+
 export type SupplierLandingPage = {
   slug: string;
   label: string;
@@ -293,8 +295,8 @@ export const supplierLandingPages: SupplierLandingPage[] = [
   },
   {
     slug: 'impregnated-activated-carbon-supplier',
-    label: 'Impregnated Activated Carbon',
-    breadcrumbLabel: 'Impregnated carbon',
+    label: productBrandingBySlug.impregnated.name,
+    breadcrumbLabel: productBrandingBySlug.impregnated.shortName,
     title: 'Impregnated activated carbon for targeted gas and water systems',
     description:
       'Black Opal Carbons provides chemically enhanced coconut shell activated carbon for targeted gas-stream, bacteriostatic, mercury-removal, and specialty purification duties.',
@@ -341,8 +343,8 @@ export const supplierLandingPages: SupplierLandingPage[] = [
   },
   {
     slug: 'catalytic-activated-carbon-supplier',
-    label: 'Catalytic Activated Carbon',
-    breadcrumbLabel: 'Catalytic carbon',
+    label: productBrandingBySlug.catalytic.name,
+    breadcrumbLabel: productBrandingBySlug.catalytic.shortName,
     title: 'Catalytic activated carbon for chloramine and hydrogen sulfide control',
     description:
       'Black Opal Carbons provides surface-modified coconut shell catalytic activated carbon for chloramine reduction, hydrogen sulfide decomposition, taste and odor reduction, and specialty water-treatment applications.',

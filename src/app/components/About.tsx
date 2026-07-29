@@ -71,7 +71,7 @@ export function AboutPage() {
                 data-sanity={aboutPageDataAttribute('heroImageUrl')}
                 src={aboutPage.heroImage}
                 alt={aboutPage.heroImageAlt}
-                className="w-full aspect-[5/4] object-cover"
+                className="aspect-[5/4] w-full object-cover object-center"
               />
             </div>
             <div>

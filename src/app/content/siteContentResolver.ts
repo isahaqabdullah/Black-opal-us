@@ -1,4 +1,5 @@
 import { stegaClean } from '@sanity/client/stega';
+import { productBrandingForSlug } from './productBranding';
 import {
   applicationMap as fallbackApplicationMap,
   applications as fallbackApplications,
@@ -25,6 +26,7 @@ import {
   type PageCopyContent,
   type PageIntroContent,
   type PackagingMediaEntry,
+  type ProductCatalogueEntry,
   type ProductEntry,
   type ProductionStepEntry,
   type ProductionPageContent,
@@ -396,6 +398,72 @@ function contentSections(value: unknown, fallback: ContentSection[] = []) {
   return sections.length ? sections : fallback;
 }
 
+const productCatalogueDocumentPattern =
+  /^\/documents\/product-catalogues\/[^?#]+\.pdf$/i;
+const productCatalogueCoverPattern =
+  /^\/images\/product-catalogues\/[^?#]+\.(?:jpg|jpeg|png|webp|avif)$/i;
+
+function productCatalogueEntries(
+  value: unknown,
+  fallback: ProductCatalogueEntry[] = [],
+): ProductCatalogueEntry[] {
+  if (!Array.isArray(value)) {
+    return fallback;
+  }
+
+  const fallbackByKey = new Map(
+    fallback
+      .filter((catalogue) => catalogue._key)
+      .map((catalogue) => [catalogue._key, catalogue]),
+  );
+  const entries = value
+    .map((catalogue, index): ProductCatalogueEntry | null => {
+      if (!catalogue || typeof catalogue !== 'object') {
+        return null;
+      }
+
+      const item = catalogue as Partial<ProductCatalogueEntry>;
+      const key = cleanTextValue(item._key);
+      const fallbackItem = (key ? fallbackByKey.get(key) : undefined) ?? fallback[index];
+      const productName = textValue(item.productName, fallbackItem?.productName);
+      const title = textValue(item.title, fallbackItem?.title);
+      const description = textValue(item.description, fallbackItem?.description);
+      const documentUrl = cleanTextValue(item.documentUrl, fallbackItem?.documentUrl);
+      const coverImage = cleanTextValue(item.coverImage, fallbackItem?.coverImage);
+      const pageCount =
+        typeof item.pageCount === 'number' && Number.isInteger(item.pageCount) && item.pageCount > 0
+          ? item.pageCount
+          : fallbackItem?.pageCount;
+      const fileSize = textValue(item.fileSize, fallbackItem?.fileSize);
+
+      if (
+        !productName ||
+        !title ||
+        !description ||
+        !productCatalogueDocumentPattern.test(documentUrl) ||
+        !productCatalogueCoverPattern.test(coverImage) ||
+        !pageCount ||
+        !fileSize
+      ) {
+        return null;
+      }
+
+      return {
+        _key: key || fallbackItem?._key,
+        productName,
+        title,
+        description,
+        documentUrl,
+        coverImage,
+        pageCount,
+        fileSize,
+      };
+    })
+    .filter((catalogue): catalogue is ProductCatalogueEntry => catalogue !== null);
+
+  return entries.length ? entries : fallback;
+}
+
 const legacyProductImageMarkers: Record<string, string[]> = {
   powder: ['photo-1581092160607-ee22621dd758', 'photo-1534259434801-e3d2427ae102'],
   impregnated: ['photo-1611284446314-60a58ac0deb9'],
@@ -415,12 +483,28 @@ function normalizeProductImage(slug: string, image: string) {
 
 function normalizeProduct(value: Partial<ProductEntry>, fallback?: ProductEntry) {
   const slug = cleanTextValue(value.slug, fallback?.slug);
-  const name = textValue(value.name, fallback?.name);
-  const shortName = textValue(value.shortName, fallback?.shortName || name);
+  const branding = slug ? productBrandingForSlug(slug) : undefined;
+  const resolvedName = textValue(value.name, fallback?.name);
+  const name =
+    branding && branding.legacyNames.includes(cleanTextValue(resolvedName))
+      ? branding.name
+      : resolvedName;
+  const resolvedShortName = textValue(value.shortName, fallback?.shortName || name);
+  const shortName =
+    branding && branding.legacyShortNames.includes(cleanTextValue(resolvedShortName))
+      ? branding.shortName
+      : resolvedShortName;
   const summary = textValue(value.summary, fallback?.summary);
   const intro = textValue(value.intro, fallback?.intro);
   const resolvedImage = cleanTextValue(value.image, fallback?.image);
   const image = slug && resolvedImage ? normalizeProductImage(slug, resolvedImage) : resolvedImage;
+  const resolvedSeo = normalizeSeo(value.seo, fallback?.seo);
+  const seo =
+    branding &&
+    resolvedSeo?.seoTitle &&
+    branding.legacySeoTitles.includes(cleanTextValue(resolvedSeo.seoTitle))
+      ? { ...resolvedSeo, seoTitle: branding.seoTitle }
+      : resolvedSeo;
 
   if (!slug || !name || !summary || !intro || !image) {
     return null;
@@ -429,7 +513,7 @@ function normalizeProduct(value: Partial<ProductEntry>, fallback?: ProductEntry)
   return {
     _id: cleanTextValue(value._id),
     _type: value._type === 'product' ? value._type : undefined,
-    seo: normalizeSeo(value.seo, fallback?.seo),
+    seo,
     slug,
     name,
     shortName,
@@ -437,6 +521,8 @@ function normalizeProduct(value: Partial<ProductEntry>, fallback?: ProductEntry)
     intro,
     highlights: stringArray(value.highlights, fallback?.highlights),
     commonUses: stringArray(value.commonUses, fallback?.commonUses),
+    productNames: stringArray(value.productNames, fallback?.productNames),
+    catalogues: productCatalogueEntries(value.catalogues, fallback?.catalogues),
     grades: stringArray(value.grades, fallback?.grades),
     sections: contentSections(value.sections, fallback?.sections),
     image,
@@ -640,6 +726,7 @@ function normalizePageCopy(value?: Partial<PageCopyContent> | null): PageCopyCon
       highlightsLabel: textValue(productsPage?.highlightsLabel, fallback.productsPage.highlightsLabel),
       commonUsesLabel: textValue(productsPage?.commonUsesLabel, fallback.productsPage.commonUsesLabel),
       applicationsLabel: textValue(productsPage?.applicationsLabel, fallback.productsPage.applicationsLabel),
+      productListLabel: textValue(productsPage?.productListLabel, fallback.productsPage.productListLabel),
       referencedGradesLabel: textValue(productsPage?.referencedGradesLabel, fallback.productsPage.referencedGradesLabel),
       detailCtaLabel: fallback.productsPage.detailCtaLabel,
       quoteCtaPath: fallback.productsPage.quoteCtaPath,
@@ -657,6 +744,30 @@ function normalizePageCopy(value?: Partial<PageCopyContent> | null): PageCopyCon
       applicationsLabel: textValue(
         productDetailPage?.applicationsLabel,
         fallback.productDetailPage.applicationsLabel,
+      ),
+      productListLabel: textValue(
+        productDetailPage?.productListLabel,
+        fallback.productDetailPage.productListLabel,
+      ),
+      cataloguesLabel: textValue(
+        productDetailPage?.cataloguesLabel,
+        fallback.productDetailPage.cataloguesLabel,
+      ),
+      cataloguesTitle: textValue(
+        productDetailPage?.cataloguesTitle,
+        fallback.productDetailPage.cataloguesTitle,
+      ),
+      cataloguesDescription: textValue(
+        productDetailPage?.cataloguesDescription,
+        fallback.productDetailPage.cataloguesDescription,
+      ),
+      viewCatalogueLabel: textValue(
+        productDetailPage?.viewCatalogueLabel,
+        fallback.productDetailPage.viewCatalogueLabel,
+      ),
+      downloadCatalogueLabel: textValue(
+        productDetailPage?.downloadCatalogueLabel,
+        fallback.productDetailPage.downloadCatalogueLabel,
       ),
       ctaTitle: textValue(productDetailPage?.ctaTitle, fallback.productDetailPage.ctaTitle),
       ctaDescription: textValue(productDetailPage?.ctaDescription, fallback.productDetailPage.ctaDescription),

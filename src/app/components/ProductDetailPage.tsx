@@ -1,6 +1,6 @@
 'use client';
 
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Download, ExternalLink, FileText } from 'lucide-react';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { usePageCopyDataAttribute, useSanityDataAttribute } from '../cms/visualEditingAttributes';
@@ -89,6 +89,34 @@ export function ProductDetailPage() {
                 ))}
               </div>
 
+              {product.productNames?.length ? (
+                <div className="pt-6 border-t border-[#c9a24d]/10">
+                  <span
+                    data-sanity={pageCopyDataAttribute('productDetailPage.productListLabel')}
+                    className="text-[#8f835f] text-[10px] tracking-[0.22em] uppercase block mb-3"
+                    style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
+                  >
+                    {copy.productListLabel}
+                  </span>
+                  <ul className="flex flex-wrap gap-2">
+                    {product.productNames.map((productName, productNameIndex) => (
+                      <li
+                        key={productName}
+                        data-sanity={sanityDataAttribute(
+                          'product',
+                          product._id,
+                          `productNames[${productNameIndex}]`,
+                        )}
+                        className="premium-secondary-btn text-[12px] px-3 py-1.5 rounded-full"
+                        style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
+                      >
+                        {productName}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null}
+
               <div className="pt-6 border-t border-[#c9a24d]/10">
                 <span
                   data-sanity={pageCopyDataAttribute('productDetailPage.applicationsLabel')}
@@ -115,6 +143,145 @@ export function ProductDetailPage() {
           </div>
         </div>
       </section>
+
+      {product.catalogues?.length ? (
+        <section className="pt-4 pb-10 md:pt-5 md:pb-12">
+          <div className="premium-shell">
+            <div data-sanity-edit-target className="mb-7 max-w-3xl">
+              <span
+                data-sanity={pageCopyDataAttribute('productDetailPage.cataloguesLabel')}
+                className="premium-kicker text-[10px] tracking-[0.22em] uppercase block mb-3"
+                style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
+              >
+                {copy.cataloguesLabel}
+              </span>
+              <h2
+                data-sanity={pageCopyDataAttribute('productDetailPage.cataloguesTitle')}
+                className="premium-heading premium-heading-elevated text-[clamp(1.7rem,2.8vw,2.35rem)] leading-[1.06] mb-3"
+                style={{ fontFamily: "'DM Serif Display', serif" }}
+              >
+                {copy.cataloguesTitle}
+              </h2>
+              <p
+                data-sanity={pageCopyDataAttribute('productDetailPage.cataloguesDescription')}
+                className="premium-copy text-[14px] leading-[1.65]"
+                style={{ fontFamily: 'Inter, sans-serif', fontWeight: 300 }}
+              >
+                {copy.cataloguesDescription}
+              </p>
+            </div>
+
+            <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+              {product.catalogues.map((catalogue, catalogueIndex) => {
+                const cataloguePath = catalogue._key
+                  ? `catalogues[_key=="${catalogue._key}"]`
+                  : `catalogues[${catalogueIndex}]`;
+                const pageLabel = catalogue.pageCount === 1 ? 'page' : 'pages';
+
+                return (
+                  <article
+                    key={catalogue._key ?? catalogue.documentUrl}
+                    data-sanity-edit-target
+                    className="premium-panel-soft premium-card-animated premium-reveal overflow-hidden flex h-full flex-col"
+                    style={{ animationDelay: `${120 + catalogueIndex * 90}ms` }}
+                  >
+                    <a
+                      href={catalogue.documentUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`View ${catalogue.title} PDF in a new tab`}
+                      className="group block overflow-hidden border-b border-[#c9a24d]/10 bg-[#090907]"
+                    >
+                      <img
+                        data-sanity={sanityDataAttribute(
+                          'product',
+                          product._id,
+                          `${cataloguePath}.coverImage`,
+                        )}
+                        src={catalogue.coverImage}
+                        alt=""
+                        loading="lazy"
+                        className="aspect-video w-full object-cover transition-transform duration-500 group-hover:scale-[1.025]"
+                      />
+                    </a>
+
+                    <div className="flex flex-1 flex-col p-5 md:p-6">
+                      <span
+                        data-sanity={sanityDataAttribute(
+                          'product',
+                          product._id,
+                          `${cataloguePath}.productName`,
+                        )}
+                        className="text-[#8f835f] text-[10px] tracking-[0.22em] uppercase block mb-2"
+                        style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
+                      >
+                        {catalogue.productName}
+                      </span>
+                      <h3
+                        data-sanity={sanityDataAttribute(
+                          'product',
+                          product._id,
+                          `${cataloguePath}.title`,
+                        )}
+                        className="premium-card-heading text-[18px] leading-[1.25] mb-3"
+                        style={{ fontFamily: 'Inter, sans-serif', fontWeight: 600 }}
+                      >
+                        {catalogue.title}
+                      </h3>
+                      <p
+                        data-sanity={sanityDataAttribute(
+                          'product',
+                          product._id,
+                          `${cataloguePath}.description`,
+                        )}
+                        className="premium-copy text-[14px] leading-[1.65] mb-4"
+                        style={{ fontFamily: 'Inter, sans-serif', fontWeight: 300 }}
+                      >
+                        {catalogue.description}
+                      </p>
+                      <div
+                        className="mt-auto flex items-center gap-2 text-[12px] text-[#8f835f]"
+                        style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
+                      >
+                        <FileText size={14} aria-hidden="true" />
+                        <span>PDF</span>
+                        <span aria-hidden="true">·</span>
+                        <span>
+                          {catalogue.pageCount} {pageLabel}
+                        </span>
+                      </div>
+
+                      <div className="mt-5 flex flex-wrap gap-2 border-t border-[#c9a24d]/10 pt-5">
+                        <a
+                          href={catalogue.documentUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`View ${catalogue.title} PDF in a new tab`}
+                          className="premium-primary-btn inline-flex items-center gap-2 rounded-full px-4 py-2 text-[12px]"
+                          style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
+                        >
+                          {copy.viewCatalogueLabel}
+                          <ExternalLink size={13} aria-hidden="true" />
+                        </a>
+                        <a
+                          href={catalogue.documentUrl}
+                          download
+                          aria-label={`Download ${catalogue.title} PDF`}
+                          className="premium-secondary-btn inline-flex items-center gap-2 rounded-full px-4 py-2 text-[12px]"
+                          style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
+                        >
+                          {copy.downloadCatalogueLabel}
+                          <Download size={13} aria-hidden="true" />
+                        </a>
+                      </div>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       <section className="pt-4 pb-10 md:pt-5 md:pb-12">
         <div className="premium-shell space-y-6">

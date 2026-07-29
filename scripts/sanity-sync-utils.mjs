@@ -85,6 +85,7 @@ export const cmsDocumentsProjection = `{
       highlightsLabel,
       commonUsesLabel,
       applicationsLabel,
+      productListLabel,
       referencedGradesLabel
     },
     productDetailPage {
@@ -94,6 +95,12 @@ export const cmsDocumentsProjection = `{
       overviewLabel,
       commonUsesLabel,
       applicationsLabel,
+      productListLabel,
+      cataloguesLabel,
+      cataloguesTitle,
+      cataloguesDescription,
+      viewCatalogueLabel,
+      downloadCatalogueLabel,
       ctaTitle,
       ctaDescription
     },
@@ -194,6 +201,8 @@ export const cmsDocumentsProjection = `{
     intro,
     highlights,
     commonUses,
+    productNames,
+    catalogues,
     grades,
     sections,
     image,

@@ -95,6 +95,34 @@ export function ProductsPage() {
                     </div>
 
                     <div>
+                      {product.productNames?.length ? (
+                        <div className="mb-5">
+                          <span
+                            data-sanity={pageCopyDataAttribute('productsPage.productListLabel')}
+                            className="text-[#8f835f] text-[10px] tracking-[0.22em] uppercase block mb-3"
+                            style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
+                          >
+                            {copy.productListLabel}
+                          </span>
+                          <ul className="flex flex-wrap gap-2">
+                            {product.productNames.map((productName, productNameIndex) => (
+                              <li
+                                key={productName}
+                                data-sanity={sanityDataAttribute(
+                                  'product',
+                                  product._id,
+                                  `productNames[${productNameIndex}]`,
+                                )}
+                                className="premium-secondary-btn text-[12px] px-3 py-1.5 rounded-full"
+                                style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
+                              >
+                                {productName}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ) : null}
+
                       <span
                         data-sanity={pageCopyDataAttribute('productsPage.applicationsLabel')}
                         className="text-[#8f835f] text-[10px] tracking-[0.22em] uppercase block mb-3"

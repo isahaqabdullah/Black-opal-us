@@ -12,8 +12,8 @@ export const contentSection = {
 const productSlugOptions = [
   { title: 'Granular Activated Carbon', value: 'granular' },
   { title: 'Powder Activated Carbon', value: 'powder' },
-  { title: 'Impregnated Activated Carbon', value: 'impregnated' },
-  { title: 'Catalytic Activated Carbon', value: 'catalytic' },
+  { title: 'AMMONYX, RESPIRAX - Impregnated Carbon', value: 'impregnated' },
+  { title: 'CatCarb & CatalyX - CATCARB', value: 'catalytic' },
 ];
 
 const supportedProductSlugs = new Set(productSlugOptions.map((option) => option.value));
@@ -152,6 +152,69 @@ export const packagingMediaEntry = {
     },
     { name: 'mediaAlt', title: 'Accessibility Label', type: 'string', validation: (Rule: any) => Rule.required() },
   ],
+};
+
+export const productCatalogueEntry = {
+  name: 'productCatalogueEntry',
+  title: 'Product Catalogue',
+  type: 'object',
+  fields: [
+    {
+      name: 'productName',
+      title: 'Product Name',
+      type: 'string',
+      validation: (Rule: any) => Rule.required(),
+    },
+    {
+      name: 'title',
+      title: 'Catalogue Title',
+      type: 'string',
+      validation: (Rule: any) => Rule.required(),
+    },
+    {
+      name: 'description',
+      title: 'Description',
+      type: 'text',
+      rows: 3,
+      validation: (Rule: any) => Rule.required(),
+    },
+    {
+      name: 'documentUrl',
+      title: 'PDF Path',
+      description: 'Root-relative path under /documents/product-catalogues/.',
+      type: 'string',
+      validation: (Rule: any) =>
+        Rule.required().regex(/^\/documents\/product-catalogues\/[^?#]+\.pdf$/i, {
+          name: 'product catalogue PDF path',
+        }),
+    },
+    {
+      name: 'coverImage',
+      title: 'Cover Preview Path',
+      description: 'Root-relative image path under /images/product-catalogues/.',
+      type: 'string',
+      validation: (Rule: any) =>
+        Rule.required().regex(/^\/images\/product-catalogues\/[^?#]+\.(?:jpg|jpeg|png|webp|avif)$/i, {
+          name: 'product catalogue cover path',
+        }),
+    },
+    {
+      name: 'pageCount',
+      title: 'Page Count',
+      type: 'number',
+      validation: (Rule: any) => Rule.required().integer().min(1),
+    },
+    {
+      name: 'fileSize',
+      title: 'Display File Size',
+      description: 'Human-readable value such as 1.3 MB.',
+      type: 'string',
+      validation: (Rule: any) => Rule.required(),
+    },
+  ],
+  preview: {
+    select: { title: 'title', subtitle: 'productName' },
+  },
 };
 
 const siteOptions = [
@@ -432,6 +495,19 @@ export const product = {
     { name: 'intro', title: 'Intro', type: 'text', rows: 4, validation: (Rule: any) => Rule.required() },
     { name: 'highlights', title: 'Highlights', type: 'array', of: [{ type: 'string' }] },
     { name: 'commonUses', title: 'Common Uses', type: 'array', of: [{ type: 'string' }] },
+    {
+      name: 'productNames',
+      title: 'Products',
+      description: 'Specific trade names shown for this product family.',
+      type: 'array',
+      of: [{ type: 'string' }],
+    },
+    {
+      name: 'catalogues',
+      title: 'Product Catalogues',
+      type: 'array',
+      of: [{ type: 'productCatalogueEntry' }],
+    },
     { name: 'grades', title: 'Referenced Grades', type: 'array', of: [{ type: 'string' }] },
     { name: 'sections', title: 'Sections', type: 'array', of: [{ type: 'contentSection' }] },
     { name: 'image', title: 'Image', type: 'image', options: { hotspot: true } },
@@ -624,6 +700,7 @@ export const pageCopy = {
         { name: 'highlightsLabel', title: 'Highlights Label', type: 'string' },
         { name: 'commonUsesLabel', title: 'Common Uses Label', type: 'string' },
         { name: 'applicationsLabel', title: 'Applications Label', type: 'string' },
+        { name: 'productListLabel', title: 'Product List Label', type: 'string' },
         { name: 'referencedGradesLabel', title: 'Referenced Grades Label', type: 'string' },
       ],
     },
@@ -638,6 +715,12 @@ export const pageCopy = {
         { name: 'overviewLabel', title: 'Overview Label', type: 'string' },
         { name: 'commonUsesLabel', title: 'Common Uses Label', type: 'string' },
         { name: 'applicationsLabel', title: 'Applications Label', type: 'string' },
+        { name: 'productListLabel', title: 'Product List Label', type: 'string' },
+        { name: 'cataloguesLabel', title: 'Catalogues Eyebrow Label', type: 'string' },
+        { name: 'cataloguesTitle', title: 'Catalogues Section Title', type: 'string' },
+        { name: 'cataloguesDescription', title: 'Catalogues Section Description', type: 'text', rows: 3 },
+        { name: 'viewCatalogueLabel', title: 'View Catalogue Button Label', type: 'string' },
+        { name: 'downloadCatalogueLabel', title: 'Download Catalogue Button Label', type: 'string' },
         { name: 'ctaTitle', title: 'Closing Section Title', type: 'string' },
         { name: 'ctaDescription', title: 'Closing Section Description', type: 'text', rows: 3 },
       ],
@@ -760,6 +843,7 @@ export const schemaTypes = [
   featuredCapabilityEntry,
   productionStepEntry,
   packagingMediaEntry,
+  productCatalogueEntry,
   seoFields,
   homePage,
   siteSettings,

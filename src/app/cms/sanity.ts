@@ -109,6 +109,7 @@ export const siteContentQuery = `{
       highlightsLabel,
       commonUsesLabel,
       applicationsLabel,
+      productListLabel,
       referencedGradesLabel
     },
     productDetailPage {
@@ -118,6 +119,12 @@ export const siteContentQuery = `{
       overviewLabel,
       commonUsesLabel,
       applicationsLabel,
+      productListLabel,
+      cataloguesLabel,
+      cataloguesTitle,
+      cataloguesDescription,
+      viewCatalogueLabel,
+      downloadCatalogueLabel,
       ctaTitle,
       ctaDescription
     },
@@ -247,6 +254,17 @@ export const siteContentQuery = `{
     intro,
     highlights,
     commonUses,
+    productNames,
+    catalogues[] {
+      _key,
+      productName,
+      title,
+      description,
+      documentUrl,
+      coverImage,
+      pageCount,
+      fileSize
+    },
     grades,
     sections[] {
       _key,
