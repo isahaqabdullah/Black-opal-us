@@ -56,6 +56,7 @@ const env = Object.fromEntries(
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  allowedDevOrigins: ['127.0.0.1'],
   env,
   async headers() {
     if (process.env.NODE_ENV === 'production') {
