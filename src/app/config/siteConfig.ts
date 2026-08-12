@@ -307,7 +307,7 @@ export const siteConfig = {
   heroKicker: envValue('HERO_KICKER', 'NSF 42 / NSF 61 CERTIFIED - PROP 65 COMPLIANT'),
   heroTitle: envValue(
     'HERO_TITLE',
-    'Coconut Shell Activated Carbon for Water, Air, Gas & Industrial Applications',
+    'Premium Coconut Shell Activated Carbon',
   ),
   heroDescription: envValue(
     'HERO_DESCRIPTION',
