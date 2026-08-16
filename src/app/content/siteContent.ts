@@ -459,7 +459,7 @@ export const homePageContent: HomePageContent = {
   trustProductionLabel: 'Production',
   trustProductionValue: `${siteConfig.productionCenterCount} Production Centers`,
   trustCapacityLabel: 'Capacity',
-  trustCapacityValue: '50 million lbs',
+  trustCapacityValue: '100 million lbs',
   productSectionKicker: 'Product Categories',
   productSectionTitle: 'Application-matched grades for every process',
   applicationSectionKicker: 'Applications',
@@ -476,7 +476,7 @@ export const homePageContent: HomePageContent = {
   companyMetrics: [
     { value: '2010', label: 'Year established' },
     { value: siteConfig.productionCenterCount, label: 'Production centers' },
-    { value: '50 million lbs', label: 'Annual capacity' },
+    { value: '100 million lbs', label: 'Annual capacity' },
   ],
   companyAboutCtaPath: '/about',
   companyAboutCtaLabel: 'About Black Opal',
@@ -615,7 +615,7 @@ export const productionPageContent: ProductionPageContent = {
   glanceLabel: 'Production at a glance',
   glanceItems: [
     {
-      value: '50 million lbs',
+      value: '100 million lbs',
       label: 'Annual capacity',
     },
     {
@@ -629,7 +629,7 @@ export const productionPageContent: ProductionPageContent = {
   ],
   overviewTitle: 'Our coconut activated carbon facility in India is the largest in the region',
   overviewBody:
-    'Our coconut activated carbon facility in India is the largest in the region with annual production capacity of 50 million pounds of carbon. Black Opal Group factories pursue uncompromising quality standards in all stages of process and operation activities. For this, a meticulous quality control program is operated throughout the entire process from selection of raw material to final quality assurance prior to shipment.',
+    'Our coconut activated carbon facility in India is the largest in the region with annual production capacity of 100 million pounds of carbon. Black Opal Group factories pursue uncompromising quality standards in all stages of process and operation activities. For this, a meticulous quality control program is operated throughout the entire process from selection of raw material to final quality assurance prior to shipment.',
   image: '/images/production/ucs-about.jpg',
   imageAlt: 'Interior of the Black Opal activated carbon manufacturing facility',
   qualityKicker: 'Quality program',
@@ -934,7 +934,7 @@ export const aboutPageContent: AboutPageContent = {
     'The group was established in 2010 as a joint venture between the largest privately owned coconut shell activated carbon manufacturer in India and some of the highly experienced entrepreneurs in activated carbon industry with combined experience of over 50 years in the field.',
     'Over the years, the group has become one of the most recognized brands in the industry, with a reputation based on quality, innovation, service and reliability.',
     'Company owned and operated manufacturing facilities means higher quality standards, reliability and consistency.',
-    'The state-of-the-art factory in India has a production capacity of 50 million pounds of coconut activated carbon and has been serving the industry for years. We commit to provide our clients with value-added products and services; we further strive to exceed their expectations and keep them continuously informed through personable, honest and open communications. The secret of our success is our vision towards customer service and satisfaction, 24 hours per day and 7 days a week.',
+    'The state-of-the-art factory in India has a production capacity of 100 million pounds of coconut activated carbon and has been serving the industry for years. We commit to provide our clients with value-added products and services; we further strive to exceed their expectations and keep them continuously informed through personable, honest and open communications. The secret of our success is our vision towards customer service and satisfaction, 24 hours per day and 7 days a week.',
   ],
   officeNetworkLabel: 'Office network',
   metrics: siteMetrics,

@@ -49,7 +49,7 @@ export const supplierLandingPages: SupplierLandingPage[] = [
     highlights: [
       'Formerly Indocarb AC LLC, now operating under the Black Opal Carbons name',
       'Company-owned manufacturing with control over feedstock, activation, sizing, packing, and final quality assurance',
-      '35000 metric tons annual coconut activated carbon capacity',
+      '45000 metric tons annual coconut activated carbon capacity',
       'Granular, powder, impregnated, and catalytic activated carbon product families',
       'NSF 42, NSF 61, and Prop 65 compliant coconut shell carbon grades for applicable water-treatment use',
     ],
@@ -100,9 +100,9 @@ export const supplierLandingPages: SupplierLandingPage[] = [
     serviceType: 'Bulk activated carbon manufacturing',
     introTitle: 'Manufacturing scale for larger activated carbon requirements',
     intro:
-      "Black Opal's company-owned manufacturing controls feedstock selection, steam activation, particle sizing, packing, and final quality assurance before shipment. With 35000 metric tons of annual coconut activated carbon capacity, the product range supports water treatment, gold recovery, air and gas, oil and gas, catalytic carbon, and specialty purification applications.",
+      "Black Opal's company-owned manufacturing controls feedstock selection, steam activation, particle sizing, packing, and final quality assurance before shipment. With 45000 metric tons of annual coconut activated carbon capacity, the product range supports water treatment, gold recovery, air and gas, oil and gas, catalytic carbon, and specialty purification applications.",
     highlights: [
-      '35000 metric tons annual coconut activated carbon capacity',
+      '45000 metric tons annual coconut activated carbon capacity',
       'Company-owned manufacturing with controlled feedstock, activation, sizing, packing, and final quality assurance',
       'Granular, powder, impregnated, and catalytic activated carbon product families',
       'Coconut shell carbon manufactured and exported from India',
