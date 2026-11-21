@@ -10,8 +10,6 @@ export function Hero() {
   const heroLogoAlt = homePage.heroLogoAlt;
   const heroLogoCaption = '';
   const heroTitle = homePage.heroTitle;
-  const videoBrandLogoImage = '/images/black-opal-nav-logo-transparent.png';
-  const videoBrandLogoClassName = 'premium-video-brand-logo';
   const homePageDocumentId = homePage._id;
   const homePageDataAttribute = useHomePageDataAttribute(homePageDocumentId);
 
@@ -82,31 +80,16 @@ export function Hero() {
 
           <div className="premium-hero-media relative w-full">
             <div className="pointer-events-none absolute inset-x-[12%] bottom-[-7%] h-24 rounded-full bg-[#c9a24d]/12 blur-3xl" />
-            <div className="premium-image-frame premium-image-animated premium-reveal premium-reveal-delay-1">
-              <div className="relative overflow-hidden rounded-[1.15rem]">
-                <video
-                  data-sanity={homePageDataAttribute('heroVideoUrl')}
-                  src={homePage.heroVideoUrl}
-                  className="premium-hero-video block w-full object-cover"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  preload="metadata"
-                  aria-label={homePage.heroVideoLabel}
-                >
-                  {homePage.heroVideoFallback}
-                </video>
-
-                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_10%,rgba(255,255,255,0.06),transparent_34%),linear-gradient(180deg,rgba(5,5,5,0.02),rgba(5,5,5,0.22))]" />
-                <div className="premium-video-brand-mark" aria-hidden="true">
-                  <img
-                    src={videoBrandLogoImage}
-                    alt=""
-                    className={videoBrandLogoClassName}
-                  />
-                </div>
-              </div>
+            <div className="premium-image-frame premium-reveal premium-reveal-delay-1">
+              <img
+                data-sanity={homePageDataAttribute('heroImageUrl')}
+                src={homePage.heroImageUrl}
+                alt={homePage.heroImageAlt}
+                width={1920}
+                height={1523}
+                fetchPriority="high"
+                className="block h-auto w-full"
+              />
             </div>
           </div>
         </div>

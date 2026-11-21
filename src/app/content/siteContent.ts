@@ -48,9 +48,8 @@ export type HomePageContent = {
   heroSecondaryCtaPath: string;
   heroSecondaryCtaLabel: string;
   heroLegacyLabel: string;
-  heroVideoUrl: string;
-  heroVideoLabel: string;
-  heroVideoFallback: string;
+  heroImageUrl: string;
+  heroImageAlt: string;
   trustCertificationLabel: string;
   trustCertificationValue: string;
   trustCertificationLinkLabel: string;
@@ -447,9 +446,8 @@ export const homePageContent: HomePageContent = {
   heroSecondaryCtaPath: '/contact',
   heroSecondaryCtaLabel: 'Talk to Technical Sales',
   heroLegacyLabel: 'Formerly Indocarb AC LLC',
-  heroVideoUrl: '/images/blackopal-home-page-video.mp4',
-  heroVideoLabel: 'Black Opal home page video',
-  heroVideoFallback: 'Your browser does not support the video tag.',
+  heroImageUrl: '/images/black-opal-carbon-applications.webp',
+  heroImageAlt: 'Black Opal coconut shell activated carbon for water treatment, gold refining, oil and gas purification, automotive air filtration, and odor control.',
   trustCertificationLabel: 'Certifications',
   trustCertificationValue: 'NSF 42 · NSF 61 · Prop 65 Compliant',
   trustCertificationLinkLabel: '',

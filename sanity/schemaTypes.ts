@@ -320,13 +320,12 @@ export const homePage = {
     },
     { name: 'heroLegacyLabel', title: 'Hero Legacy Label', type: 'string' },
     {
-      name: 'heroVideoUrl',
-      title: 'Hero Video URL',
-      description: 'Use a public path like /images/blackopal-home-page-video.mp4 or a full URL.',
+      name: 'heroImageUrl',
+      title: 'Hero Image URL',
+      description: 'Use a public path like /images/black-opal-carbon-applications.webp or a full URL.',
       type: 'string',
     },
-    { name: 'heroVideoLabel', title: 'Hero Video Accessibility Label', type: 'string' },
-    { name: 'heroVideoFallback', title: 'Hero Video Fallback Text', type: 'string' },
+    { name: 'heroImageAlt', title: 'Hero Image Alt Text', type: 'string' },
     {
       name: 'trustCertificationLabel',
       title: 'Trust Bar Certification Label',
